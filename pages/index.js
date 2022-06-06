@@ -1,19 +1,20 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import Script from 'next/script'
-import styles from '../styles/Home.module.css'
-import tw from "tailwind-styled-components"
-import Header from '../components/Header'
-import Main from '../components/Main'
-import Footer from '../components/Footer'
+import Head from "next/head";
+import Image from "next/image";
+import Script from "next/script";
+import styles from "../styles/Home.module.css";
+import tw from "tailwind-styled-components";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import Card from "../components/card";
+import { nftData } from './../components/data';
 
 const Container = tw.div`
-w-screen
+w-full
 h-screen
 text-white
 justify-center
 px-7
-`
+`;
 
 export default function Home() {
   return (
@@ -24,20 +25,20 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Script id="tailwind" src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp" />
+      <Script
+        id="tailwind"
+        src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"
+      />
 
-      <script>
-              tailwind.config = {
-                
-              }
-      </script>
+      <script>tailwind.config = {}</script>
 
       <Header />
-
-      <Main />
-
+      <div className="grid xl:grid-cols-4 grid-cols-1 md:grid-cols-2 gap-1 place-items-center pt-20">
+        {nftData.map((item)=>(
+          <Card key={item.id}{...item}/>
+        ))}
+      </div>
       <Footer />
-
     </Container>
-  )
+  );
 }

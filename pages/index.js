@@ -1,12 +1,11 @@
 import Head from "next/head";
-import Image from "next/image";
 import Script from "next/script";
-import styles from "../styles/Home.module.css";
 import tw from "tailwind-styled-components";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Card from "../components/card";
-import { nftData } from './../components/data';
+import { nftData } from "./../components/data";
+import Link from "next/link";
 
 const Container = tw.div`
 w-full
@@ -33,11 +32,101 @@ export default function Home() {
       <script>tailwind.config = {}</script>
 
       <Header />
-      <div className="grid xl:grid-cols-4 grid-cols-1 md:grid-cols-2 gap-1 place-items-center pt-20">
-        {nftData.map((item)=>(
-          <Card key={item.id}{...item}/>
+      <div className="ml-60">
+      <div className="flex">
+        <div className="ml-20 pt-20 text-start text-white lg:w-1/2">
+          <h1 className="text-7xl font-semibold leading-normal">
+            Hey Redbrickers, thank you for your dedication!
+          </h1>
+          <p className="font-light text-gray-200 mt-3 pr-40 ">
+            We appreciate everything that you do, and as a way of saying thank
+            you we wanted to offer you something unique... just like the work
+            you do at Redbrick! Please select the anniversary year that you are
+            celebrating below to claim your NFT.
+          </p>
+        </div>
+      </div>
+      <div className="flex gap-10 place-items-center mt-10 ml-20">
+        {nftData.map((item) => (
+          <Card key={item.id} {...item} />
         ))}
       </div>
+      </div>
+      {/* <div className="ml-14">
+        <div className="flex justify-start items-center mt-8">
+          <div className="pt-20 text-black w-1/2 text-left">
+            <h1 className="text-3xl font-semibold">What is an NFT?</h1>
+            <p className="text-gray-500 mt-3 ">
+              NFT stands for Non-Fungible Token. NFTs can be associated with
+              images, videos, audio files, and almost any other kind of digitally
+              stored information. They are non-interchangeable and immutable
+              pieces of data stored on the blockchain. Each token and its history
+              of owners and transactions is completely public and verified on the
+              blockchain, and this accomplishes something that has never been
+              possible before: proof of digital ownership. No one can modify or
+              edit the ownership of the digital asset, or cope and paste a new NFT
+              into existence.
+            </p>
+          </div>
+        </div>
+        <div className="flex justify-start items-center">
+          <div className="pt-20 text-black w-1/2 mt-4 pb-2 text-left">
+            <h1 className="text-2xl font-semibold">
+              Follow these steps to get started:
+            </h1>
+          </div>
+        </div>
+        <div className="flex justify-start items-center">
+          <div className="pt-5 text-black w-1/2 mb-2 text-left">
+            <h1 className="text-3xl font-semibold">
+              1. Add the MetaMask wallet extension
+            </h1>
+            <p className="text-gray-500 mt-4 ">
+              First step is to make sure you have a MetaMask wallet installed!
+              To do that, you can visit
+              <Link
+                className="font-semibold"
+                href="https://metamask.io/download/"
+              >
+                <a> here. </a>
+              </Link>
+              Youll know the extension is successfully added to your browser
+              when you can see the small icon in your toolbar.
+            </p>
+          </div>
+        </div>
+        <div className="flex justify-start items-center">
+          <div className="pt-10 text-black w-1/2 mb-2 text-left">
+            <h1 className="text-3xl font-semibold">
+              2. Add the Polygon blockchain network
+            </h1>
+            <p className="text-gray-500 mt-4 ">
+              Since were launching on Polygon, you will also need to add the
+              connection to that blockchain to your wallet. We can do this in a
+              few simple clicks! Go ahead and visit you can visit
+              <Link href="https://chainlist.org/">
+                <a> Chainlist.org here.</a>
+              </Link>{" "}
+              Once on that page, find the Polygon Mainnet and select connect
+              wallet. Your MetaMask wallet extension will pop-up and it will
+              prompt you to accept. Once you accept, the Polygon network will
+              automatically be added to your wallet!
+            </p>
+          </div>
+        </div>
+        <div className="flex justify-start items-center">
+          <div className="pt-10 text-black w-1/2 pb-8 text-left">
+            <h1 className="text-3xl font-semibold">
+              3. You are now ready to mint your Redbrick NFT!
+            </h1>
+            <p className="text-gray-500 mt-4 ">
+              Now that we have an NFT capable wallet, and the correct blockchain
+              to connect with, youre all set! Scroll back above, and click on
+              Claim Now for the NFT anniversary year you are celebrating.
+            </p>
+          </div>
+        </div>
+      </div> */}
       <Footer />
     </Container>
   );

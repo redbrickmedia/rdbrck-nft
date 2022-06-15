@@ -7,7 +7,6 @@ import tw from "tailwind-styled-components";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import Minting from "../../components/Minting";
-import Buttons from "../../components/Buttons";
 import { ToastContainer } from "react-toastify";
 
 export default function Home() {
@@ -42,12 +41,7 @@ export default function Home() {
               <Image src={data.image} alt="equilibrium" />
             </VideoContainer>
             <div>
-              <Minting                   des={data.description}
-                  title={data.title}>
-                <Buttons
-                  id={data.id}
-                />
-              </Minting>
+              <Minting des={data.description} title={data.title} id={data.id} />
             </div>
           </div>
         </MainContainer>

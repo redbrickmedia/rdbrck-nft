@@ -3,19 +3,22 @@ import {
   useAddress,
   useDisconnect,
   useMetamask,
-  useChainId,
   useEditionDrop,
+  useChainId,
 } from "@thirdweb-dev/react";
 import { useEffect, useState } from "react";
 import ReactLoading from "react-loading";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Wrongchain from "./wrongchain";
 
 const Buttons = (props) => {
-  const [totalSupply, setTotalSupply] = useState(0);
+  const chainId = useChainId();
+  console.log(chainId);
+  // const [totalSupply, setTotalSupply] = useState(0);
   const [inProgress, setInProgress] = useState(false);
   const [completed, setCompleted] = useState(false);
-  const [isConnected, setConnected] = useState(false);
+  // const [isConnected, setConnected] = useState(false);
   const address = useAddress();
   const connectWithMetamask = useMetamask();
   const disconnect = useDisconnect();
@@ -24,21 +27,18 @@ const Buttons = (props) => {
   );
   console.log(address);
 
-  const chainId = useChainId();
-  console.log(chainId);
+  // const connected = async () => {
+  //   if (connectWithMetamask && address) {
+  //     setConnected(true);
+  //   }
+  // };
 
-  const connected = async () => {
-    if (connectWithMetamask && address) {
-      setConnected(true);
-    }
-  };
-
-  const mint = async (props) => {
+  const mint = async () => {
     if (editionDrop && address) {
+      console.log(props.id);
       setInProgress(true);
       const tx = await editionDrop.claimTo(address, props.id, 1);
       console.log(tx);
-      console.log(props.id);
       setInProgress(false);
       setCompleted(true);
       toast.success("Mint Succesful!");
@@ -50,41 +50,60 @@ const Buttons = (props) => {
     window.open(url, "_blank");
   };
 
-  const startOver = () => {
-    setCompleted(false);
-    setInProgress(false);
-    disconnect();
-  };
+  // const startOver = () => {
+  //   setCompleted(false);
+  //   setInProgress(false);
+  //   disconnect();
+  // };
 
   return (
     <div>
       <ButtonContainer className="gap-8">
         {address ? (
-          <>
-            {completed ? (
-              <FilledButton onClick={viewOpensea}>View on OpenSea</FilledButton>
-            ) : inProgress ? (
-              <div className="pt-4">
-                <ReactLoading
-                  type="bubbles"
-                  color="#FFFFFF"
-                  height={30}
-                  width={65}
-                />
+          chainId === 80001 ? (
+            <Mint>
+              <TitleContainer className="grid gap-8">
+                <Title>{props.title}</Title>
+                <h2 className="font-light">{props.des}</h2>
+              </TitleContainer>
+
+              <div className="flex gap-6">
+                {completed ? (
+                  <FilledButton onClick={viewOpensea}>
+                    View on OpenSea
+                  </FilledButton>
+                ) : inProgress ? (
+                  <div className="pt-4">
+                    <ReactLoading
+                      type="bubbles"
+                      color="#FFFFFF"
+                      height={30}
+                      width={65}
+                    />
+                  </div>
+                ) : (
+                  <FilledButton disabled={inProgress} onClick={mint}>
+                    <>Mint</>
+                  </FilledButton>
+                )}
+                <UnfilledButton onClick={disconnect} disabled={inProgress}>
+                  Disconnect
+                </UnfilledButton>
               </div>
-            ) : (
-              <FilledButton disabled={inProgress} onClick={mint}>
-                <>Mint</>
-              </FilledButton>
-            )}
-            <UnfilledButton onClick={disconnect} disabled={inProgress}>
-              Disconnect
-            </UnfilledButton>
-          </>
+            </Mint>
+          ) : (
+            <Wrongchain />
+          )
         ) : (
-          <FilledButton onClick={connectWithMetamask}>
-            Connect Wallet
-          </FilledButton>
+          <Mint>
+            <TitleContainer className="grid gap-8">
+              <Title>{props.title}</Title>
+              <h2 className="font-light">{props.des}</h2>
+            </TitleContainer>
+            <FilledButton onClick={connectWithMetamask}>
+              Connect Wallet
+            </FilledButton>
+          </Mint>
         )}
       </ButtonContainer>
     </div>
@@ -92,6 +111,13 @@ const Buttons = (props) => {
 };
 
 export default Buttons;
+
+const Mint = tw.div`
+flex
+flex-col
+max-w-screen-sm
+mt-[-50px]
+`;
 
 const FilledButton = tw.button`
   bg-white
@@ -105,6 +131,7 @@ const FilledButton = tw.button`
   mt-[20px]
   py-3
   px-7
+  w-1/3
   `;
 
 const UnfilledButton = tw(FilledButton)`
@@ -118,3 +145,15 @@ const ButtonContainer = tw.div`
   ml-20
   mt-6
   `;
+
+const Title = tw.h2`
+uppercase
+text-3xl
+font-bold
+mt-2
+`;
+const TitleContainer = tw.div`
+text-white
+max-w-screen-lg
+w-full
+`;

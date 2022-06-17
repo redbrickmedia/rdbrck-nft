@@ -1,12 +1,12 @@
 import React from "react";
 import tw from "tailwind-styled-components";
-import Header from "../components/Header"
+import Header from "../components/Header";
 
 const notFound = () => {
   return (
-    <Container className="text-white">
-    <Header />
-    404 Page not found
+    <Container>
+      <Header />
+      <div className="text-5xl flex justify-center items-center h-screen">404 Page not found</div>
     </Container>
   );
 };

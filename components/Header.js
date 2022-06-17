@@ -2,9 +2,11 @@ import tw from "tailwind-styled-components";
 import Image from "next/image";
 import logo from "../assets/logo.png";
 import Link from "next/link";
+import { AnimatePresence } from "framer-motion";
 
 const header = () => {
   return (
+    <AnimatePresence>
     <HeaderContainer>
       <Link href={"/"}>
         <h1 className="text-3xl uppercase font-semibold tracking-[.29em] cursor-pointer">
@@ -17,6 +19,7 @@ const header = () => {
         </button>
       </Link>
     </HeaderContainer>
+    </AnimatePresence>
   );
 };
 

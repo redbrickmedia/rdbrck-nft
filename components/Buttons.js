@@ -5,6 +5,7 @@ import {
   useMetamask,
   useEditionDrop,
   useChainId,
+  getTotalCount,
 } from "@thirdweb-dev/react";
 import { useEffect, useState } from "react";
 import ReactLoading from "react-loading";
@@ -37,6 +38,7 @@ const Buttons = (props) => {
     if (editionDrop && address) {
       console.log(props.id);
       setInProgress(true);
+      // set a condition where if the txn doens't happen, in progress reverts back to false
       const tx = await editionDrop.claimTo(address, props.id, 1);
       console.log(tx);
       setInProgress(false);
@@ -46,15 +48,16 @@ const Buttons = (props) => {
   };
 
   const viewOpensea = () => {
-    const url = "https://testnets.opensea.io/collection/1-year-anniversary";
+    const url =
+      "https://testnets.opensea.io/collection/{contract_address}/{props.id}";
     window.open(url, "_blank");
   };
 
-  // const startOver = () => {
-  //   setCompleted(false);
-  //   setInProgress(false);
-  //   disconnect();
-  // };
+  const startOver = () => {
+    setCompleted(false);
+    setInProgress(false);
+    disconnect();
+  };
 
   return (
     <div>
@@ -62,11 +65,10 @@ const Buttons = (props) => {
         {address ? (
           chainId === 80001 ? (
             <Mint>
-              <TitleContainer className="grid gap-8">
+              <TitleContainer className="grid gap-6">
                 <Title>{props.title}</Title>
                 <h2 className="font-light">{props.des}</h2>
               </TitleContainer>
-
               <div className="flex gap-6">
                 {completed ? (
                   <FilledButton onClick={viewOpensea}>
@@ -86,7 +88,7 @@ const Buttons = (props) => {
                     <>Mint</>
                   </FilledButton>
                 )}
-                <UnfilledButton onClick={disconnect} disabled={inProgress}>
+                <UnfilledButton onClick={startOver} disabled={inProgress}>
                   Disconnect
                 </UnfilledButton>
               </div>
@@ -96,9 +98,9 @@ const Buttons = (props) => {
           )
         ) : (
           <Mint>
-            <TitleContainer className="grid gap-8">
-              <Title>{props.title}</Title>
-              <h2 className="font-light">{props.des}</h2>
+            <TitleContainer className="grid gap-6">
+              <Title>{props.connect}</Title>
+              <h2>{props.connectdes}</h2>
             </TitleContainer>
             <FilledButton onClick={connectWithMetamask}>
               Connect Wallet
@@ -113,10 +115,9 @@ const Buttons = (props) => {
 export default Buttons;
 
 const Mint = tw.div`
-flex
-flex-col
-max-w-screen-sm
-mt-[-50px]
+  flex-col
+  max-w-screen-sm
+  mt-[-50px]
 `;
 
 const FilledButton = tw.button`
@@ -131,7 +132,6 @@ const FilledButton = tw.button`
   mt-[20px]
   py-3
   px-7
-  w-1/3
   `;
 
 const UnfilledButton = tw(FilledButton)`
@@ -147,13 +147,13 @@ const ButtonContainer = tw.div`
   `;
 
 const Title = tw.h2`
-uppercase
-text-3xl
-font-bold
-mt-2
+  uppercase
+  text-3xl
+  font-bold
+  mt-2
 `;
 const TitleContainer = tw.div`
-text-white
-max-w-screen-lg
-w-full
+  text-white
+  max-w-screen-lg
+  w-full
 `;

@@ -87,7 +87,6 @@ const Title = tw.h2`
   `;
 const TitleContainer = tw.div`
   ml-18
-  mr-20
   text-white
   max-w-screen-lg
   w-full

@@ -1,83 +1,71 @@
 import React from "react";
 import Header from "../components/Header";
 import tw from "tailwind-styled-components";
-import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 const pageVariants = {
   initial: {
     opacity: 0,
-    scale: 0.8,
   },
   in: {
     opacity: 1,
-    scale: 1,
   },
   out: {
     opacity: 0,
-    scale: 1.2,
   },
 };
 
-const pageTransition = {
-  ease: "anticipate",
-  duration: 3,
-};
-
-const howtomint = () => {
+const howtomint = ({ isVisible }) => {
   return (
-    <Container className="text-white">
+    <Container>
       <Header />
       <motion.div
         initial="initial"
         animate="in"
         exit="out"
         variants={pageVariants}
-        transition={pageTransition}
       >
-        <div className="ml-60">
-          <div className="flex">
-            <div className="ml-20 pt-20 text-start text-white lg:w-2/3">
-              <h1 className="text-5xl font-semibold leading-normal">
-                Here's how you can mint your very own Redbrick NFT!
-              </h1>
-              <h2 className="text-2xl font-semibold mt-20 leading-normal">
-                Step 1: Install a MetaMask wallet
-              </h2>
-              <p className="font-light text-gray-200 mt-3 pr-40 ">
-                In order to claim your NFT, you need a compatible wallet. Please
-                visit
-                <a
-                  target="_blank"
-                  href="https://metamask.io/download/"
-                  rel="noopener noreferrer"
-                >
-                  <u>&nbsp;metamask.io/download/&nbsp;</u>
-                </a>
-                to install it as a browser extension.
-                <br /> <br />
-                1. Next, click on the MetaMask browser extension and select "Get
-                Started". After that, click on "Create a Wallet"
-                <br /> <br />
-                2. Create a password for your wallet, and save your secret key
-                phrase. The most common method is to write your 12-word phrase
-                on a piece of paper and store it safely in a place where only
-                you have access. Never share your seed phrase or your private
-                key to anyone or any site, unless you want them to have full
-                control over your funds.
-                <br /> <br />
-                3. After saving your seed phrase, you will need to confirm it by
-                clicking on every word in the order they were presented on the
-                previous screen. Confirm to proceed, and you're done!
-              </p>
-              <h2 className="text-2xl font-semibold mt-20 leading-normal">
-                Step 2: That's it!
-              </h2>
-              <p className="font-light text-gray-200 mt-3 pr-40 ">
-                Once you have your wallet all setup, you are ready to mint. Go
-                ahead and navigate to the anniversary year you are celebrating,
-                and follow the on screen prompts.
-              </p>
+        <div className="ml-40 mt-24">
+          <div>
+            <h1 className="text-4xl font-semibold">
+              Here's how to claim your Redbrick NFT:
+            </h1>
+          </div>
+          <div className="grid grid-cols-3 mt-12 w-5/6">
+            <h2 className="text-4xl font-bold">Step 1</h2>
+            <h2 className="text-4xl font-bold">Step 2</h2>
+            <h2 className="text-4xl font-bold">Step 3</h2>
+          </div>
+          <div className="grid grid-cols-3 mt-4 w-5/6">
+            <div className="pr-16">
+              Go to&nbsp;
+              <a
+                target="_blank"
+                href="https://metamask.io/download/"
+                rel="noopener noreferrer"
+              >
+                <u>metamask.io/download/</u>
+              </a>
+              &nbsp;and install the wallet browser extension. Click on the
+              extension, "Get Started" and then "Create a Wallet".
+            </div>
+            <div className="pr-16">
+              Make a strong password, and write down your secret key phrase 
+              and store it somewhere secure.
+              You will need to confirm the seed phrase on the next page.
+            </div>
+            <div className="pr-16">
+              Once confirmed, your wallet is now setup! Go back to the home page of this app,
+              select your anniversary year and click on Connect wallet -> Change
+              network -> Mint.
+            </div>
+          </div>
+          <div>
+            <h1 className="text-4xl mt-16 font-semibold">
+              What to do after you claim your NFT?
+            </h1>
+            <div className="mt-4 w-5/6">
+              You can view it on OpenSea, share it to your LinkedIn network, or even add it to your resume as proof that you worked at Redbrick!
             </div>
           </div>
         </div>
@@ -95,3 +83,45 @@ px-7
 `;
 
 export default howtomint;
+
+{
+  /* <div className="flex grid grid-cols-1 grid-rows-2">
+<div className="ml-20 pt-20 text-white lg:w-2/3">
+  <h1 className="text-5xl font-semibold leading-normal">
+    How to mint your Redbrick NFT!
+  </h1>
+</div>
+  <div className="grid grid-rows-1 grid-flow-col mt-10">
+    <div className="grid pr-10">
+      <h1 className="text-4xl">Step 1</h1>
+      <h1 className="text-4xl">Step 2</h1>
+      <h1 className="text-4xl">Step 3</h1>
+    </div> 
+    <div className="grid grid-rows-1 grid-flow-col mt-10">
+      <p className="mt-4">
+        Go to&nbsp;
+        <a
+          target="_blank"
+          href="https://metamask.io/download/"
+          rel="noopener noreferrer"
+        >
+          <u>metamask.io/download/</u>
+        </a>
+        &nbsp;and install the wallet browser extension. Click on the extension and then "Get Started".
+      </p>
+ 
+      <div className="grid justify-start pr-10">
+      <p className="mt-4 flex items-center">
+        Next, select "Create a Wallet". Create a strong password, and write down your secret key phrase and store it somewhere secure. You will need to confirm the seed phrase on the next page.
+      </p>
+      </div>
+      <div className="grid justify-start pr-10">
+      <p className="mt-4 flex items-center">
+       Your wallet is now setup! Go back to the home page of this app, select your anniversary year and
+        click on Connect wallet -> Change network -> Mint.
+      </p>
+    </div>
+  </div>
+</div>
+</div> */
+}

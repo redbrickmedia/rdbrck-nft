@@ -77,6 +77,8 @@ const ChangeButton = tw.button`
   py-3
   px-7
   w-fit
+  shadow-md
+  hover:shadow-gray-600
   `;
 
 const Title = tw.h2`

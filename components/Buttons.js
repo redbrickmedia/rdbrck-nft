@@ -47,22 +47,19 @@ const Buttons = (props) => {
     }
   };
 
-  const viewOpensea = () => {
-    const url =
-      "https://testnets.opensea.io/collection/{contract_address}/{props.id}";
-    window.open(url, "_blank");
-  };
-
   const startOver = () => {
     setCompleted(false);
     setInProgress(false);
     disconnect();
   };
 
+  const targetUrl = `https://testnets.opensea.io/assets/mumbai/0xb636c1a63c3b092a7c74304b1947b0162d08a1e4/${props.id}`;
+
   return (
     <div>
       <ButtonContainer className="gap-8">
         {address ? (
+          // update chainId to 137 for mainnet
           chainId === 80001 ? (
             <Mint>
               <TitleContainer className="grid gap-6">
@@ -71,9 +68,7 @@ const Buttons = (props) => {
               </TitleContainer>
               <div className="flex gap-6">
                 {completed ? (
-                  <FilledButton onClick={viewOpensea}>
-                    View on OpenSea
-                  </FilledButton>
+                  <a href={targetUrl} target="_blank"><button className="bg-white rounded-full transition duration-600 hover:scale-105 border-2 border-black text-black mt-[20px] py-3 px-7">View on OpenSea</button></a>
                 ) : inProgress ? (
                   <div className="pt-4">
                     <ReactLoading
@@ -132,6 +127,8 @@ const FilledButton = tw.button`
   mt-[20px]
   py-3
   px-7
+  shadow-md
+  hover:shadow-gray-600
   `;
 
 const UnfilledButton = tw(FilledButton)`

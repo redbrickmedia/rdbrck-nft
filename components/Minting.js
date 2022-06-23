@@ -5,9 +5,9 @@ import Buttons from "../components/Buttons";
 const Minting = (props) => {
 
   return (
-    <Container>
+      <Container>
         <Buttons {...props} id={props.id} />
-    </Container>
+      </Container>
   );
 };
 

@@ -6,7 +6,7 @@ export const nftData = [
     connecttitle: "Let's get started!",
     connectdescription:
       "Please connect your MetaMask wallet by clicking on the button below and accepting the signature.",
-    image: "/image-1.png",
+    image: "/1.png",
     video: "bg-video.mp4",
     text: "You've been with us for 1 year, and that's amazing!",
     description:
@@ -19,7 +19,7 @@ export const nftData = [
     connecttitle: "Let's get started!",
     connectdescription:
       "Please connect your MetaMask wallet by clicking on the button below and accepting the signature.",
-    image: "/image-2.png",
+    image: "/3.png",
     video: "bg-video.mp4",
     text: "Year 3 and we're just getting started ;)",
     description:
@@ -32,7 +32,7 @@ export const nftData = [
     connecttitle: "Let's get started!",
     connectdescription:
       "Please connect your MetaMask wallet by clicking on the button below and accepting the signature.",
-    image: "/image-3.png",
+    image: "/5.png",
     video: "bg-video.mp4",
     text: "On the 5th year of Redbrick, my true love gave to me...",
     description:
@@ -45,7 +45,7 @@ export const nftData = [
     connecttitle: "Let's get started!",
     connectdescription:
       "Please connect your MetaMask wallet by clicking on the button below and accepting the signature.",
-    image: "/image-4.png",
+    image: "/10.png",
     video: "bg-video.mp4",
     text: "Wow, you are a certified original Redbricker!",
     description:

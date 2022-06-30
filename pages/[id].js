@@ -21,15 +21,12 @@ export default function Home() {
   const pageVariants = {
     initial: {
       opacity: 0,
-
     },
     in: {
       opacity: 1,
-
     },
     out: {
       opacity: 0,
-
     },
   };
 
@@ -42,46 +39,46 @@ export default function Home() {
       </Head>
 
       <Header iswhite />
-        <motion.div
-          initial="initial"
-          animate="in"
-          exit="out"
-          variants={pageVariants}
-        >
-          <div className="mt-20 flex items-center justify-center">
-            <MainContainer>
-              <div className="flex items-center justify-center flex-col lg:flex-row">
-                <VideoContainer>
-                <video autoPlay={true} loop muted style={{ width: '368px', height: '368px' }}>
+      <motion.div
+        initial="initial"
+        animate="in"
+        exit="out"
+        variants={pageVariants}
+      >
+        <div className="mt-20 flex items-center justify-center">
+          <MainContainer>
+            <div className="flex items-center justify-center flex-col lg:flex-row">
+              <VideoContainer>
+                {/* <video autoPlay={true} loop muted style={{ width: '368px', height: '368px' }}>
                   <source src={data.video} />
-                </video>
-                  {/* <Image src={data.image} alt="equilibrium" /> */}
-                </VideoContainer>
-                <div>
-                  <Minting
-                    des={data.description}
-                    title={data.title}
-                    id={data.id}
-                    connect={data.connecttitle}
-                    connectdes={data.connectdescription}
-                  />
-                </div>
+                </video> */}
+                <Image src={data.image} alt="equilibrium" />
+              </VideoContainer>
+              <div>
+                <Minting
+                  des={data.description}
+                  title={data.title}
+                  id={data.id}
+                  connect={data.connecttitle}
+                  connectdes={data.connectdescription}
+                />
               </div>
-            </MainContainer>
-          </div>
-          <Footer />
-        </motion.div>
+            </div>
+          </MainContainer>
+        </div>
+        <Footer />
+      </motion.div>
       <ToastContainer
-          position="bottom-center"
-          autoClose={3200}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-        />
+        position="bottom-center"
+        autoClose={3200}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </Container>
   );
 }
@@ -89,7 +86,7 @@ export default function Home() {
 const MainContainer = tw.div`
 shadow-neutral-700
 shadow-2xl
-mt-15
+mt-20
 border-4
 border-black
 border-solid

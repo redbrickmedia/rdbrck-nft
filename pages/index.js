@@ -68,5 +68,4 @@ w-full
 h-screen
 text-white
 justify-center
-px-7
 `;

@@ -24,9 +24,10 @@ const Buttons = (props) => {
   const connectWithMetamask = useMetamask();
   const disconnect = useDisconnect();
   const editionDrop = useEditionDrop(
-    "0xB636C1a63C3b092a7c74304B1947B0162D08a1e4"
+    "0xB0861Ef3C80096c4434E027a4C650CC47D5614C0"
   );
   console.log(address);
+  console.log(props.id);
 
   // const connected = async () => {
   //   if (connectWithMetamask && address) {
@@ -36,7 +37,6 @@ const Buttons = (props) => {
 
   const mint = async () => {
     if (editionDrop && address) {
-      console.log(props.id);
       setInProgress(true);
       // set a condition where if the txn doens't happen, in progress reverts back to false
       const tx = await editionDrop.claimTo(address, props.id, 1);
@@ -53,7 +53,7 @@ const Buttons = (props) => {
     disconnect();
   };
 
-  const targetUrl = `https://testnets.opensea.io/assets/mumbai/0xb636c1a63c3b092a7c74304b1947b0162d08a1e4/${props.id}`;
+  const targetUrl = `https://testnets.opensea.io/assets/mumbai/0xB0861Ef3C80096c4434E027a4C650CC47D5614C0/${props.id}`;
 
   return (
     <div>
@@ -68,7 +68,11 @@ const Buttons = (props) => {
               </TitleContainer>
               <div className="flex gap-6">
                 {completed ? (
-                  <a href={targetUrl} target="_blank"><button className="bg-white rounded-full transition duration-600 hover:scale-105 border-2 border-black text-black mt-[20px] py-3 px-7">View on OpenSea</button></a>
+                  <a href={targetUrl} target="_blank">
+                    <button className="bg-white rounded-full transition duration-600 hover:scale-105 border-2 border-black text-black mt-[20px] py-3 px-7">
+                      View on OpenSea
+                    </button>
+                  </a>
                 ) : inProgress ? (
                   <div className="pt-4">
                     <ReactLoading

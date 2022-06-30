@@ -1,49 +1,46 @@
 import tw from "tailwind-styled-components";
 
-const networks = {
-  polygon: {
-    chainId: `0x${Number(137).toString(16)}`,
-    chainName: "Polygon Mainnet",
-    nativeCurrency: {
-      name: "MATIC",
-      symbol: "MATIC",
-      decimals: 18,
-    },
-    rpcUrls: ["https://polygon-rpc.com/"],
-    blockExplorerUrls: ["https://polygonscan.com/"],
-  },
-  mumbai: {
-    chainId: `0x${Number(80001).toString(16)}`,
-    chainName: "Polygon Mumbai",
-    nativeCurrency: {
-      name: "MATIC",
-      symbol: "MATIC",
-      decimals: 18,
-    },
-    rpcUrls: ["https://rpc-mumbai.maticvigil.com"],
-    blockExplorerUrls: ["https://mumbai.polygonscan.com/"],
-  },
-};
-
 const Wrongchain = () => {
-  const changeNetwork = async ({ networkName }) => {
-    try {
-      if (!window.ethereum) throw new Error("No crypto wallet found");
-      await window.ethereum.request({
-        method: "wallet_addEthereumChain",
-        params: [
-          {
-            ...networks[networkName],
-          },
-        ],
-      });
-    } catch (err) {
-      setError(err.message);
+  const changeNetwork = async () => {
+    // if wallet is connected, change detected network to {params}
+    if (window.ethereum) {
+      try {
+        await window.ethereum.request({
+          method: "wallet_switchEthereumChain",
+          params: [{ chainId: `0x${Number(80001).toString(16)}` }],
+        });
+      } catch (error) {
+        // this error indicates that metamask doesn't recognize the dAPP chainId
+        // if the wallet doens't recogize it, then install it into MetaMask for the user
+        if (error.code === 4902) {
+          try {
+            // change log to "you need to add Polygona mainnet"
+            console.log("You need to add the Mumbai testnet");
+            await window.ethereum.request({
+              method: "wallet_addEthereumChain",
+              params: [
+                {
+                  chainId: `0x${Number(80001).toString(16)}`,
+                  chainName: "Polygon Mumbai",
+                  rpcUrls: [
+                    "https://speedy-nodes-nyc.moralis.io/6bd481125fcc3c18edbefb62/polygon/mumbai",
+                  ],
+                  nativeCurrency: {
+                    name: "MATIC",
+                    symbol: "MATIC",
+                    decimals: 18,
+                  },
+                  blockExplorerUrls: ["https://mumbai.polygonscan.com/"],
+                },
+              ],
+            });
+          } catch (addError) {
+            console.error(addError);
+          }
+        }
+        console.error(error);
+      }
     }
-  };
-
-  const handleNetworkSwitch = async (networkName) => {
-    await changeNetwork({ networkName });
   };
 
   return (
@@ -54,7 +51,7 @@ const Wrongchain = () => {
           Please select the button below to automatically connect to Polygon
           mainnet.
         </h2>
-        <ChangeButton onClick={() => handleNetworkSwitch("mumbai")}>
+        <ChangeButton onClick={() => changeNetwork()}>
           Change network
         </ChangeButton>
       </div>

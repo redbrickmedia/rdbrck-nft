@@ -15,7 +15,7 @@ NFT stands for Non-Fungible Token. Non-fungible means something that cannot be t
 ### Why introduce them to an existing technology company? 
 
 Each NFT is unique, and so is the work an employee does at their job. While their might be other people in the company doing the same _tasks_, 
-the individual work can never be replaces because it's from _you_. The same thing goes for NFTs; the art might look similar, but they are inherently unique and can never be duplicated. 
+the individual work can never be replaced because it's from _you_. The same thing goes for NFTs; the art might look similar, but they are inherently unique and can never be duplicated. 
 What they represent is an employees time at the company and the work they did here, and the individual _legacy_ they leave behind. 
 
 ## Learn More

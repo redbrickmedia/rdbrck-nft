@@ -7,6 +7,7 @@ const Wrongchain = () => {
       try {
         await window.ethereum.request({
           method: "wallet_switchEthereumChain",
+          //change (80001) to (137) for mainnet deployment
           params: [{ chainId: `0x${Number(80001).toString(16)}` }],
         });
       } catch (error) {
@@ -14,7 +15,7 @@ const Wrongchain = () => {
         // if the wallet doens't recogize it, then install it into MetaMask for the user
         if (error.code === 4902) {
           try {
-            // change log to "you need to add Polygona mainnet"
+            // change log to "you need to add Polygon mainnet"
             console.log("You need to add the Mumbai testnet");
             await window.ethereum.request({
               method: "wallet_addEthereumChain",

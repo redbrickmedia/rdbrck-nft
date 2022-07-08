@@ -2,6 +2,7 @@ import Link from "next/link";
 import React from "react";
 
 const Card = ({ id, heading }) => {
+
   return (
     <section className="rounded-xl max-w-sm">
       <div className="flex items-center mt-4">
@@ -18,4 +19,3 @@ const Card = ({ id, heading }) => {
 };
 
 export default Card;
-1;

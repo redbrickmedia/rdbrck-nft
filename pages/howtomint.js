@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from "../components/Footer"
 import Header from "../components/Header";
 import tw from "tailwind-styled-components";
 import { motion, AnimatePresence } from "framer-motion";
@@ -62,38 +63,39 @@ const howtomint = () => {
           </div>
         </div>
         <After>
-            <div className="pt-52 flex flex-row gap-10">
-              <h1 className="text-4xl font-bold leading-relaxed">
-                What to do after you claim your NFT?
-              </h1>
-              <div className="">
-                {/* Congratulations! You just claimed an NFT, and we're so excited
+          <div className="pt-52 flex flex-row gap-10">
+            <h1 className="text-4xl font-bold leading-relaxed">
+              What to do after you claim your NFT?
+            </h1>
+            <div className="">
+              {/* Congratulations! You just claimed an NFT, and we're so excited
                 for you. Here's a few things you can do with your new NFT: */}
-                <ul className="list-disc ml-10">
-                  <li>
-                    Share it to your LinkedIn network by posting the NFT and
-                    showing off your tenure ship
-                  </li>
-                  <li>
-                    You can view your NFT listing on OpenSea by connecting your
-                    wallet
-                    <a
-                      target="_blank"
-                      href="https://opensea.io/login"
-                      rel="noopener noreferrer"
-                    >
-                      {" "}
-                      <u>here</u>{" "}
-                    </a>
-                  </li>
-                  <li>
-                    Show your parents and try to explain what an NFT is to them
-                  </li>
-                </ul>
-              </div>
+              <ul className="list-disc ml-10">
+                <li>
+                  Share it to your LinkedIn network by posting the NFT and
+                  showing off your tenure ship
+                </li>
+                <li>
+                  You can view your NFT listing on OpenSea by connecting your
+                  wallet
+                  <a
+                    target="_blank"
+                    href="https://opensea.io/login"
+                    rel="noopener noreferrer"
+                  >
+                    {" "}
+                    <u>here</u>{" "}
+                  </a>
+                </li>
+                <li>
+                  Show your parents and try to explain what an NFT is to them
+                </li>
+              </ul>
             </div>
+          </div>
         </After>
       </motion.div>
+      <Footer />
     </Container>
   );
 };

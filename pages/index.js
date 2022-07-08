@@ -2,9 +2,10 @@ import Head from "next/head";
 import tw from "tailwind-styled-components";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import Card from "../components/card";
+import Card from "../components/card"; 
 import { nftData } from "./../components/data";
 import { motion, AnimatePresence } from "framer-motion";
+import { OnboardingButton } from './../components/onboarding';
 
 const pageVariants = {
   initial: {
@@ -50,13 +51,9 @@ export default function Home() {
               </p>
             </div>
           </div>
-
-          <div className="flex gap-10 place-items-center mt-10 ml-20">
-            {nftData.map((item) => (
-              <Card key={item.id} {...item} />
-            ))}
-          </div>
+          <div className="flex gap-10 place-items-center mt-10 ml-20"></div>
         </div>
+          <OnboardingButton />
         <Footer />
       </motion.div>
     </Container>

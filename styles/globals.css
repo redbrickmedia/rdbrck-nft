@@ -6,6 +6,7 @@
 html,
 body {
   background-image: url("/redbrick-bg.jpg");
+  background-image: linear-gradient(null, white);
   background-size: 100%;
   background-repeat: no-repeat;
   background-origin: content-box;

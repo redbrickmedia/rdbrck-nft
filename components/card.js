@@ -5,7 +5,7 @@ const Card = ({ id, heading }) => {
 
   return (
     <section className="rounded-xl max-w-sm">
-      <div className="flex items-center mt-4">
+      <div className="flex mt-4">
         <div>
           <Link href={`/${id}`}>
             <button className="bg-white border-2 border-black text-black px-6 py-2 rounded-full transition duration-600 hover:scale-105 shadow-md hover:shadow-gray-600">

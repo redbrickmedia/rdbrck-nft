@@ -36,7 +36,7 @@ export const nftData = [
     video: "bg-video.mp4",
     text: "On the 5th year of Redbrick, my true love gave to me...",
     description:
-      "Slow down there speed racer, it's your 5th year anniversary at Redbick! You've probably seen a lot of changes in that time, but your unique work can never be replaced. Cheers to you, and happy anniversary!",
+      "Slow down there speed racer, it's your 5th year anniversary at Redbrick! You've probably seen a lot of changes in that time, but your unique work can never be replaced. Cheers to you, and happy anniversary!",
   },
   {
     id: 3,

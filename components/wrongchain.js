@@ -1,6 +1,8 @@
 import tw from "tailwind-styled-components";
+import { useMetamask } from "@thirdweb-dev/react";
 
 const Wrongchain = () => {
+  const connectWithMetamask = useMetamask();
   const changeNetwork = async () => {
     // if wallet is connected, change detected network to {params}
     if (window.ethereum) {
@@ -24,7 +26,7 @@ const Wrongchain = () => {
                   chainId: `0x${Number(80001).toString(16)}`,
                   chainName: "Polygon Mumbai",
                   rpcUrls: [
-                    "https://speedy-nodes-nyc.moralis.io/6bd481125fcc3c18edbefb62/polygon/mumbai",
+                    "https://rpc-mumbai.maticvigil.com/v1/d20066f23fe6613c8f530422eb27b2bc80e5fe6e",
                   ],
                   nativeCurrency: {
                     name: "MATIC",
@@ -52,8 +54,13 @@ const Wrongchain = () => {
           Please select the button below to automatically connect to Polygon
           mainnet.
         </h2>
-        <ChangeButton onClick={() => changeNetwork()}>
-          Change network
+        <ChangeButton
+          onClick={() => {
+            changeNetwork();
+            connectWithMetamask();
+          }}
+        >
+          Go to Polygon
         </ChangeButton>
       </div>
     </TitleContainer>
@@ -74,6 +81,7 @@ const ChangeButton = tw.button`
   mt-[20px]
   py-3
   px-7
+  mt-2
   w-fit
   shadow-md
   hover:shadow-gray-600

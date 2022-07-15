@@ -13,6 +13,7 @@
     "@metamask/onboarding": "^1.0.1",
     "@thirdweb-dev/react": "^2.3.6",
     "@thirdweb-dev/sdk": "^2.3.16",
+    "bowser": "^2.11.0",
     "ethers": "^5.6.9",
     "framer-motion": "^6.3.11",
     "next": "12.1.6",

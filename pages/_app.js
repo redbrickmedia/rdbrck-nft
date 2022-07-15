@@ -8,8 +8,7 @@ function MyApp({ Component, pageProps }) {
         gasless: {
           openzeppelin: {
             relayerUrl:
-              "https://api.defender.openzeppelin.com/autotasks/bf8176f6-371a-4b89-aa5b-f6c2fb505e97/runs/webhook/3d577e91-cac3-4913-8fe1-17a1fde0a8e2/Fifqfb1Joe2p6wnQeyGD7w",
-              
+              "https://api.defender.openzeppelin.com/autotasks/5a011f91-6116-4fef-afda-3c3419d0a602/runs/webhook/3d577e91-cac3-4913-8fe1-17a1fde0a8e2/Pnfffp5Q6PT17suLtHsGDy",
           },
         },
       }}

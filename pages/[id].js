@@ -49,7 +49,8 @@ export default function mint() {
           <MainContainer>
             <div className="flex items-center justify-center flex-col lg:flex-row">
               <VideoContainer>
-                {/* <video autoPlay={true} loop muted style={{ width: '368px', height: '368px' }}>
+                {/* add videos here
+                <video autoPlay={true} loop muted style={{ width: '368px', height: '368px' }}>
                   <source src={data.video} />
                 </video> */}
                 <Image src={data.image} alt="equilibrium" />
@@ -122,5 +123,4 @@ w-full
 min-h-screen
 text-white
 justify-center
-px-7
 `;

@@ -2,7 +2,6 @@ import Link from "next/link";
 import React from "react";
 
 const Card = ({ id, heading }) => {
-
   return (
     <section className="rounded-xl max-w-sm">
       <div className="flex mt-4">

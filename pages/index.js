@@ -38,7 +38,7 @@ export default function Home() {
           <div className="flex">
             <div className="ml-20 pt-20 text-start text-white lg:w-2/3">
               <h1 className="text-6xl font-semibold leading-normal">
-                Congratulations, we're so happy to celebrate your time with
+                Congratulations, we&apos;re so happy to celebrate your time with
                 Redbrick!
               </h1>
               {/* <p className="font-light text-2xl text-gray-200 mt-10 pr-40 ">

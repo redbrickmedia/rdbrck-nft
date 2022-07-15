@@ -20,6 +20,10 @@ const Buttons = (props) => {
   console.log(address);
   console.log(props.id);
 
+  // const { contract } = useContract(0xEAbB004E555B2fb3071a8f76df31bFEE7a8bFA50);
+  // const { data: ownerBalance, isLoading, error } = useNFTBalance(contract?.nft, {address});
+
+
   const mint = async () => {
     if (editionDrop && address) {
       setInProgress(true);
@@ -47,7 +51,7 @@ const Buttons = (props) => {
             </TitleContainer>
             <div className="flex gap-6">
               {completed ? (
-                <a href={targetUrl} target="_blank">
+                <a href={targetUrl} target="_blank" rel="noreferrer">
                   <button className="bg-white rounded-full transition duration-600 hover:scale-105 border-2 border-black text-black mt-[20px] py-3 px-7">
                     View on OpenSea
                   </button>

@@ -14,9 +14,9 @@ export default function Mint() {
 
   const data = nftData.find((x) => x.id == params.query.id);
 
-  if (!data) {
-    return "Not Found";
-  }
+  // if (!data) {
+  //   return "Not Found";
+  // }
 
   const pageVariants = {
     initial: {

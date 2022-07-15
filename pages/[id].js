@@ -9,7 +9,7 @@ import Minting from "../components/Minting";
 import { ToastContainer } from "react-toastify";
 import { motion } from "framer-motion";
 
-export default function mint() {
+export default function Mint() {
   const params = useRouter();
 
   const data = nftData.find((x) => x.id == params.query.id);

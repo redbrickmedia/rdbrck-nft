@@ -23,7 +23,7 @@ export const nftData = [
     video: "bg-video.mp4",
     text: "Year 3 and we're just getting started ;)",
     description:
-      "Has it been 3 years already? Seems just like yesterday you had your first tour of the office! We appreciate your time at work and love what you bring to the table. Here's to next year!",
+      "It's been 3 years already, but it feels just like yesterday you had your first tour of the office! We appreciate your time at work and love what you bring to the table. Here's to next year!",
   },
   {
     id: 2,

@@ -77,14 +77,14 @@ const whatsnext = () => {
                 <u>here</u>{" "}
               </a>
               to learn more about what NFTs are and how they work. If you want
-              to dig into our smart contract and see all recent transactions,
-              you can visit Polyscan{" "}
+              to view our smart contract, and see a list of reecnt transactions
+              and all owners, you can visit Polyscan{" "}
               <a
                 target="_blank"
                 href="https://mumbai.polygonscan.com/address/0xEAbB004E555B2fb3071a8f76df31bFEE7a8bFA50"
                 rel="noopener noreferrer"
               >
-                <u>here</u>{" "}.
+                <u>here</u> .
               </a>
             </div>
           </div>

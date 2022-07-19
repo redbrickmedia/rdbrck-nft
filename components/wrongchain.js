@@ -26,6 +26,7 @@ const Wrongchain = () => {
                   chainId: `0x${Number(80001).toString(16)}`,
                   chainName: "Polygon Mumbai",
                   rpcUrls: [
+                    //if issues arise with the rpc url here, replace with https://polygon-rpc.com/. this is a public rpc endpoint.
                     "https://rpc-mumbai.maticvigil.com/v1/d20066f23fe6613c8f530422eb27b2bc80e5fe6e",
                   ],
                   nativeCurrency: {

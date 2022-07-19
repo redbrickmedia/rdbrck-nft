@@ -19,6 +19,5 @@ const Container = tw.div`
 w-full
 h-screen
 text-white
-justify-center
-px-7
-`;
+justify-center`
+;

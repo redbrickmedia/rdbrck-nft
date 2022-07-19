@@ -1,4 +1,4 @@
-import { useRouter } from "next/router";
+
 import React from "react";
 import { nftData } from "../components/data";
 import Head from "next/head";
@@ -10,7 +10,6 @@ import { ToastContainer } from "react-toastify";
 import { motion } from "framer-motion";
 
 export default function Mint() {
-// const params = useRouter();
 
   const data = nftData.find((x) => x.id == 1);
 

@@ -3,7 +3,7 @@ import React from "react";
 import { nftData } from "./../components/data";
 import Card from "../components/card";
 
-// sets what the button text will say
+
 const ONBOARD_TEXT = "INSTALL METAMASK";
 const CONNECT_TEXT = "Connect";
 const INSTALL_BODY =
@@ -18,21 +18,16 @@ export function OnboardingButton() {
   const [bodyText, setBodyText] = React.useState(INSTALL_BODY);
   const onboarding = React.useRef();
 
-  // if onboarding is not currently happening, begin a new MetaMask onboarding process
+
   React.useEffect(() => {
     if (!onboarding.current) {
       onboarding.current = new MetaMaskOnboarding({ forwarderOrigin });
     }
   }, []);
 
-  console.log(forwarderOrigin);
-
-  // if MetaMask is already installed, check the length, set button as connected and disabled true
-  // Disabled(true) will disable the button and only show connected_text
   React.useEffect(() => {
     if (MetaMaskOnboarding.isMetaMaskInstalled()) {
       if (accounts.length > 0) {
-        // setButtonText(CONNECTED_TEXT);
         setDisabled(true);
         onboarding.current.stopOnboarding();
       } else {
@@ -42,7 +37,6 @@ export function OnboardingButton() {
       }
     }
   }, [accounts]);
-  console.log(accounts);
 
   // ?
   React.useEffect(() => {

@@ -10,7 +10,7 @@ import { motion } from "framer-motion";
 
 export default function Mint() {
   const data = nftData.find((x) => x.id == 0);
-  
+
   if (!data) {
     return "Not Found";
   }
@@ -80,32 +80,6 @@ export default function Mint() {
     </Container>
   );
 }
-
-// export const getStaticPaths = async () => {
-//   // const nftData = await fetch("http://localhost:3000/");
-
-//   const paths = nftData.map((nftData) => ({
-//     params: { id: nftData.id.toString() },
-//   }));
-//   console.log(paths);
-
-//   return {
-//     paths,
-//     fallback: false,
-//   };
-// };
-
-// export async function getStaticProps({ params }) {
-//   // const request = await fetch(`http://localhost:3000/${params.id}`);
-//   // const nftData = await request.json();
-//   console.log(params.id, "hello");
-//   const singleNftData = nftData.find((x) => params.id == x.id);
-//   return {
-//     props: {
-//       data: singleNftData,
-//     },
-//   };
-// }
 
 const MainContainer = tw.div`
 shadow-neutral-700

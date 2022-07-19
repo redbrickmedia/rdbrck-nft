@@ -1,5 +1,9 @@
 import tw from "tailwind-styled-components";
-import { useAddress, useEditionDrop, useChainId } from "@thirdweb-dev/react";
+import {
+  useAddress,
+  useEditionDrop,
+  useChainId,
+} from "@thirdweb-dev/react";
 import { useEffect, useState } from "react";
 import ReactLoading from "react-loading";
 import { toast } from "react-toastify";
@@ -11,8 +15,8 @@ const Buttons = (props) => {
   console.log(chainId);
   const [inProgress, setInProgress] = useState(false);
   const [completed, setCompleted] = useState(false);
+  const [hasClaimedNFT, setHasClaimedNFT] = useState(false);
   const address = useAddress();
-  // const disconnect = useDisconnect();
   const editionDrop = useEditionDrop(
     "0xEAbB004E555B2fb3071a8f76df31bFEE7a8bFA50"
   );
@@ -20,14 +24,34 @@ const Buttons = (props) => {
   console.log(address);
   console.log(props.id);
 
-  // const { contract } = useContract(0xEAbB004E555B2fb3071a8f76df31bFEE7a8bFA50);
-  // const { data: ownerBalance, isLoading, error } = useNFTBalance(contract?.nft, {address});
 
+  const checkBalance = async () => {
+    try {
+      const balance = await editionDrop.balanceOf(address, props.id);
+      if (balance != 0) {
+        setHasClaimedNFT(true);
+        console.log("You own this Redbrick NFT already!");
+      } else {
+        setHasClaimedNFT(false);
+        console.log("You don't own this NFT yet!");
+      }
+    } catch (error) {
+      setHasClaimedNFT(false);
+      console.error("Failed to get balance", error);
+    }
+  };
+  
+  useEffect(() => {
+    if (!address) {
+      return;
+    }
+
+    checkBalance();
+  }, [address, editionDrop]);
 
   const mint = async () => {
     if (editionDrop && address) {
       setInProgress(true);
-      // set a condition where if the txn doens't happen, in progress reverts back to false
       const tx = await editionDrop.claimTo(address, props.id, 1);
       console.log(tx);
       setInProgress(false);
@@ -42,7 +66,6 @@ const Buttons = (props) => {
   return (
     <div>
       <ButtonContainer className="gap-8">
-        {/* update chainId to 137 */}
         {chainId === 80001 ? (
           <Mint>
             <TitleContainer className="grid gap-6">
@@ -65,7 +88,11 @@ const Buttons = (props) => {
                     width={65}
                   />
                 </div>
-              ) : (
+              ) :  hasClaimedNFT ? ( 
+                <FilledButton> 
+                 You already own this NFT!
+                </FilledButton> 
+                ) : (
                 <FilledButton disabled={inProgress} onClick={mint}>
                   Mint
                 </FilledButton>

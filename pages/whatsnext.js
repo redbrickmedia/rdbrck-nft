@@ -2,7 +2,7 @@ import React from "react";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import tw from "tailwind-styled-components";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 const pageVariants = {
   initial: {

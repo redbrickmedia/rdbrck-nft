@@ -4,7 +4,6 @@ import { useMetamask } from "@thirdweb-dev/react";
 const Wrongchain = () => {
   const connectWithMetamask = useMetamask();
   const changeNetwork = async () => {
-    // if wallet is connected, change detected network to {params}
     if (window.ethereum) {
       try {
         await window.ethereum.request({
@@ -13,12 +12,10 @@ const Wrongchain = () => {
           params: [{ chainId: `0x${Number(80001).toString(16)}` }],
         });
       } catch (error) {
-        // this error indicates that metamask doesn't recognize the dAPP chainId
-        // if the wallet doens't recogize it, then install it into MetaMask for the user
+
         if (error.code === 4902) {
           try {
-            // change log to "you need to add Polygon mainnet"
-            console.log("You need to add the Mumbai testnet");
+            console.log("You need to add the Polygon network");
             await window.ethereum.request({
               method: "wallet_addEthereumChain",
               params: [
@@ -34,6 +31,7 @@ const Wrongchain = () => {
                     symbol: "MATIC",
                     decimals: 18,
                   },
+                  // update block explorer to mainnet
                   blockExplorerUrls: ["https://mumbai.polygonscan.com/"],
                 },
               ],

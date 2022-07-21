@@ -1,4 +1,3 @@
-
 import React from "react";
 import { nftData } from "../components/data";
 import Head from "next/head";
@@ -10,7 +9,6 @@ import { ToastContainer } from "react-toastify";
 import { motion } from "framer-motion";
 
 export default function Mint() {
-
   const data = nftData.find((x) => x.id == 3);
 
   if (!data) {
@@ -83,41 +81,12 @@ export default function Mint() {
   );
 }
 
-// export const getStaticPaths = async () => {
-//   // const nftData = await fetch("http://localhost:3000/");
-
-//   const paths = nftData.map((nftData) => ({
-//     params: { id: nftData.id.toString() },
-//   }));
-//   console.log(paths);
-
-//   return {
-//     paths,
-//     fallback: false,
-//   };
-// };
-
-// export async function getStaticProps({ params }) {
-//   // const request = await fetch(`http://localhost:3000/${params.id}`);
-//   // const nftData = await request.json();
-//   console.log(params.id, "hello");
-//   const singleNftData = nftData.find((x) => params.id == x.id);
-//   return {
-//     props: {
-//       data: singleNftData,
-//     },
-//   };
-// }
-
 const MainContainer = tw.div`
-shadow-neutral-700
+shadow-black
 shadow-2xl
 mt-20
-border-4
-border-black
-border-solid
-backdrop-blur-md
-rounded-lg
+bg-black
+rounded-3xl
 lg:w-4/6
 flex
 flex-col
@@ -138,14 +107,11 @@ flex
 justify-center
 `;
 
-const Video = tw.img`
-flex
-justify-center
-`;
 
 const Container = tw.div`
 w-full
 min-h-screen
 text-white
 justify-center
+container mx-auto
 `;

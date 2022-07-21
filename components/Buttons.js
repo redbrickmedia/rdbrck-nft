@@ -1,9 +1,5 @@
 import tw from "tailwind-styled-components";
-import {
-  useAddress,
-  useEditionDrop,
-  useChainId,
-} from "@thirdweb-dev/react";
+import { useAddress, useEditionDrop, useChainId } from "@thirdweb-dev/react";
 import { useEffect, useState } from "react";
 import ReactLoading from "react-loading";
 import { toast } from "react-toastify";
@@ -18,12 +14,11 @@ const Buttons = (props) => {
   const [hasClaimedNFT, setHasClaimedNFT] = useState(false);
   const address = useAddress();
   const editionDrop = useEditionDrop(
-    "0xEAbB004E555B2fb3071a8f76df31bFEE7a8bFA50"
+    "0x6ce3a1e56BDeDF0D2463eD5B90D954a72C2e5c5B"
   );
 
   console.log(address);
   console.log(props.id);
-
 
   const checkBalance = async () => {
     try {
@@ -40,7 +35,7 @@ const Buttons = (props) => {
       console.error("Failed to get balance", error);
     }
   };
-  
+
   useEffect(() => {
     if (!address) {
       return;
@@ -61,7 +56,7 @@ const Buttons = (props) => {
   };
 
   // update target url to mainnet link
-  const targetUrl = `https://testnets.opensea.io/assets/mumbai/0xEAbB004E555B2fb3071a8f76df31bFEE7a8bFA50/${props.id}`;
+  const targetUrl = `https://testnets.opensea.io/assets/mumbai/0x6ce3a1e56BDeDF0D2463eD5B90D954a72C2e5c5B/${props.id}`;
 
   return (
     <div>
@@ -88,11 +83,9 @@ const Buttons = (props) => {
                     width={65}
                   />
                 </div>
-              ) :  hasClaimedNFT ? ( 
-                <FilledButton> 
-                 You already own this NFT!
-                </FilledButton> 
-                ) : (
+              ) : hasClaimedNFT ? (
+                <FilledButton>You already own this NFT!</FilledButton>
+              ) : (
                 <FilledButton disabled={inProgress} onClick={mint}>
                   Mint
                 </FilledButton>
@@ -131,16 +124,10 @@ const FilledButton = tw.button`
   hover:shadow-gray-600
   `;
 
-const UnfilledButton = tw(FilledButton)`
-  bg-gray-100
-  text-black
-  hover:text-black
-  `;
-
 const ButtonContainer = tw.div`
   flex
-  ml-20
   mt-6
+  mr-10
   `;
 
 const Title = tw.h2`

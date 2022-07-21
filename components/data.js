@@ -6,8 +6,8 @@ export const nftData = [
     connecttitle: "Let's get started!",
     connectdescription:
       "Please connect your MetaMask wallet by clicking on the button below and accepting the signature.",
-    image: "/1.png",
-    video: "bg-video.mp4",
+    image: "1.mp4",
+    video: "1.mp4",
     text: "You've been with us for 1 year, and that's amazing!",
     description:
       "It's been 1 year since you joined Redbrick, and we couldn't be happier to have you in the family! Thank you for everything that you do, and keep on rocking.",
@@ -19,8 +19,8 @@ export const nftData = [
     connecttitle: "Let's get started!",
     connectdescription:
       "Please connect your MetaMask wallet by clicking on the button below and accepting the signature.",
-    image: "/3.png",
-    video: "bg-video.mp4",
+    image: "3.mp4",
+    video: "3.mp4",
     text: "Year 3 and we're just getting started ;)",
     description:
       "It's been 3 years already, but it feels just like yesterday you had your first tour of the office! We appreciate your time at work and love what you bring to the table. Here's to next year!",
@@ -32,8 +32,8 @@ export const nftData = [
     connecttitle: "Let's get started!",
     connectdescription:
       "Please connect your MetaMask wallet by clicking on the button below and accepting the signature.",
-    image: "/5.png",
-    video: "bg-video.mp4",
+    image: "5.mp4",
+    video: "5.mp4",
     text: "On the 5th year of Redbrick, my true love gave to me...",
     description:
       "Slow down there speed racer, it's your 5th year anniversary at Redbrick! You've probably seen a lot of changes in that time, but your unique work can never be replaced. Cheers to you, and happy anniversary!",

@@ -87,7 +87,7 @@ shadow-black
 shadow-2xl
 mt-20
 bg-black
-rounded-3xl
+rounded-[100px]
 lg:w-4/6
 flex
 flex-col

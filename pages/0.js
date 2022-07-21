@@ -46,11 +46,14 @@ export default function Mint() {
           <MainContainer>
             <div className="flex items-center justify-center flex-col lg:flex-row">
               <VideoContainer>
-                {/* add videos here
-                <video autoPlay={true} loop muted style={{ width: '368px', height: '368px' }}>
+                <video
+                  autoPlay={true}
+                  loop
+                  muted
+                  style={{ width: "368px", height: "368px" }}
+                >
                   <source src={data.video} />
-                </video> */}
-                <Image src={data.image} alt="equilibrium" />
+                </video>
               </VideoContainer>
               <div>
                 <Minting
@@ -82,20 +85,19 @@ export default function Mint() {
 }
 
 const MainContainer = tw.div`
-shadow-neutral-700
+shadow-black
 shadow-2xl
 mt-20
-border-4
-border-black
-border-solid
-backdrop-blur-md
-rounded-lg
+bg-black
+bg-blend-normal
+rounded-3xl
 lg:w-4/6
 flex
 flex-col
 items-center
 grid-rows-{n}
 `;
+
 const VideoContainer = tw.div`
 items-center
 flex
@@ -105,19 +107,11 @@ grid-rows-{n}
 p-10
 `;
 
-const Image = tw.img`
-flex
-justify-center
-`;
-
-const Video = tw.img`
-flex
-justify-center
-`;
 
 const Container = tw.div`
 w-full
 min-h-screen
 text-white
 justify-center
+container mx-auto
 `;

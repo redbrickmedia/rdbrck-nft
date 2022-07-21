@@ -84,7 +84,7 @@ const Buttons = (props) => {
                   />
                 </div>
               ) : hasClaimedNFT ? (
-                <FilledButton>You already own this NFT!</FilledButton>
+                <AlreadyButton>You already own this NFT!</AlreadyButton>
               ) : (
                 <FilledButton disabled={inProgress} onClick={mint}>
                   Mint
@@ -122,6 +122,18 @@ const FilledButton = tw.button`
   px-7
   shadow-md
   hover:shadow-gray-600
+  `;
+
+  const AlreadyButton = tw.div`
+  bg-white
+  rounded-full
+  border-2
+  border-black
+  text-black
+  mt-[20px]
+  py-3
+  px-7
+  shadow-md
   `;
 
 const ButtonContainer = tw.div`

@@ -62,6 +62,7 @@ export default function Mint() {
                   id={data.id}
                   connect={data.connecttitle}
                   connectdes={data.connectdescription}
+                  nexttitle={data.nexttitle}
                 />
               </div>
             </div>

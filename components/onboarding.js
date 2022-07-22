@@ -9,6 +9,7 @@ const CONNECT_TEXT = "Connect";
 const INSTALL_BODY =
   "To get started, please create a MetaMask wallet by clicking the button below";
 const CONNECT_BODY = "Please connect your wallet to begin";
+
 const forwarderOrigin = "http://localhost:3000/";
 
 export function OnboardingButton() {
@@ -21,9 +22,10 @@ export function OnboardingButton() {
 
   React.useEffect(() => {
     if (!onboarding.current) {
-      onboarding.current = new MetaMaskOnboarding({ forwarderOrigin });
+      onboarding.current = new MetaMaskOnboarding( forwarderOrigin, 'https://nft.rdbrck.com/' );
     }
   }, []);
+
 
   React.useEffect(() => {
     if (MetaMaskOnboarding.isMetaMaskInstalled()) {
@@ -38,7 +40,6 @@ export function OnboardingButton() {
     }
   }, [accounts]);
 
-  // ?
   React.useEffect(() => {
     function handleNewAccounts(newAccounts) {
       setAccounts(newAccounts);
@@ -54,9 +55,9 @@ export function OnboardingButton() {
     }
   }, []);
 
-  //
   const onClick = () => {
     if (MetaMaskOnboarding.isMetaMaskInstalled()) {
+      window.location.reload();
       window.ethereum
         .request({ method: "eth_requestAccounts" })
         .then((newAccounts) => setAccounts(newAccounts));

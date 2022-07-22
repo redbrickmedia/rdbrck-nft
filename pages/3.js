@@ -59,6 +59,7 @@ export default function Mint() {
                   id={data.id}
                   connect={data.connecttitle}
                   connectdes={data.connectdescription}
+                  nexttitle={data.nexttitle}
                 />
               </div>
             </div>
@@ -107,7 +108,6 @@ const Image = tw.img`
 flex
 justify-center
 `;
-
 
 const Container = tw.div`
 w-full

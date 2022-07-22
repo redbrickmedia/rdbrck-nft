@@ -55,7 +55,6 @@ const Buttons = (props) => {
     }
   };
 
-  // update target url to mainnet link
   const targetUrl = `https://testnets.opensea.io/assets/mumbai/0x6ce3a1e56BDeDF0D2463eD5B90D954a72C2e5c5B/${props.id}`;
 
   return (
@@ -87,8 +86,8 @@ const Buttons = (props) => {
                       to learn more about NFTs
                     </li>
                     <li>
-                      If you'd like to view our smart contract you can see it on
-                      Polyscan{" "}
+                      If you&apos;d like to view our smart contract you can see
+                      it on Polyscan{" "}
                       <a
                         target="_blank"
                         href="https://mumbai.polygonscan.com/address/0x6ce3a1e56BDeDF0D2463eD5B90D954a72C2e5c5B"
@@ -134,8 +133,8 @@ const Buttons = (props) => {
                       to learn more about NFTs
                     </li>
                     <li>
-                      If you'd like to view our smart contract you can see it on
-                      Polyscan{" "}
+                      If you&apos;d like to view our smart contract you can see
+                      it on Polyscan{" "}
                       <a
                         target="_blank"
                         href="https://mumbai.polygonscan.com/address/0x6ce3a1e56BDeDF0D2463eD5B90D954a72C2e5c5B"

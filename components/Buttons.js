@@ -65,43 +65,46 @@ const Buttons = (props) => {
             <div className="flex gap-6">
               {completed ? (
                 <TitleContainer className="grid gap-6">
-                  <Title>{props.nexttitle}</Title>
-                  <ul className="list-disc ml-6 leading-relaxed">
-                    <li>
-                      Share it by posting the file or the listing URL from
-                      OpenSea to your social networks like LinkedIn
-                    </li>
-                    <li>
-                      View your NFTs on OpenSea by clicking the button below
-                    </li>
-                    <li>
-                      You can visit{" "}
-                      <a
-                        target="_blank"
-                        href="https://ethereum.org/en/nft/"
-                        rel="noopener noreferrer"
-                      >
-                        <u>here</u>{" "}
-                      </a>{" "}
-                      to learn more about NFTs
-                    </li>
-                    <li>
-                      If you&apos;d like to view our smart contract you can see
-                      it on Polyscan{" "}
-                      <a
-                        target="_blank"
-                        href="https://mumbai.polygonscan.com/address/0x6ce3a1e56BDeDF0D2463eD5B90D954a72C2e5c5B"
-                        rel="noopener noreferrer"
-                      >
-                        <u>here</u>
-                      </a>
-                    </li>
-                  </ul>
-                  <a href={targetUrl} target="_blank" rel="noreferrer">
-                    <ViewButton>View on OpenSea</ViewButton>
-                  </a>
-                </TitleContainer>
+                    <Title>{props.nexttitle}</Title>
+                    <ul className="list-disc ml-6 leading-relaxed">
+                      <li>
+                        Share it by posting the file or the listing URL from
+                        OpenSea to your social networks like LinkedIn
+                      </li>
+                      <li>
+                        View your NFTs on OpenSea by clicking the button below
+                      </li>
+                      <li>
+                        You can visit{" "}
+                        <a
+                          target="_blank"
+                          href="https://ethereum.org/en/nft/"
+                          rel="noopener noreferrer"
+                        >
+                          <u>here</u>{" "}
+                        </a>{" "}
+                        to learn more about NFTs
+                      </li>
+                      <li>
+                        If you&apos;d like to view our smart contract you can see
+                        it on Polyscan{" "}
+                        <a
+                          target="_blank"
+                          href="https://mumbai.polygonscan.com/address/0x6ce3a1e56BDeDF0D2463eD5B90D954a72C2e5c5B"
+                          rel="noopener noreferrer"
+                        >
+                          <u>here</u>
+                        </a>
+                      </li>
+                    </ul>
+                    <a href={targetUrl} target="_blank" rel="noreferrer">
+                      <ViewButton>View on OpenSea</ViewButton>
+                    </a>
+                  </TitleContainer>
               ) : inProgress ? (
+                <TitleContainer className="grid gap-6">
+                  <Title>{props.title}</Title>
+                  <h2 className="font-light">{props.des}</h2>
                 <div className="pt-4">
                   <ReactLoading
                     type="bubbles"
@@ -110,6 +113,7 @@ const Buttons = (props) => {
                     width={65}
                   />
                 </div>
+                </TitleContainer>
               ) : hasClaimedNFT ? (
                 <TitleContainer className="grid gap-6">
                   <Title>{props.nexttitle}</Title>
@@ -155,7 +159,7 @@ const Buttons = (props) => {
                 <TitleContainer className="grid gap-6">
                   <Title>{props.title}</Title>
                   <h2 className="font-light">{props.des}</h2>
-                  <FilledButton disabled={inProgress} onClick={mint}>
+                  <FilledButton className="w-40" disabled={inProgress} onClick={mint}>
                     Mint
                   </FilledButton>
                 </TitleContainer>

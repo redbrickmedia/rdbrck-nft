@@ -91,7 +91,6 @@ shadow-3xl
 mt-20
 bg-[#151515]
 rounded-[12px]
-lg:w-4/6
 flex
 flex-col
 items-center
@@ -112,5 +111,4 @@ min-h-screen
 text-white
 justify-center
 container mx-auto
-2xl:max-w-max
 `;

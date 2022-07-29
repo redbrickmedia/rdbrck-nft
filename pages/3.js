@@ -90,7 +90,6 @@ shadow-3xl
 mt-20
 bg-[#151515]
 rounded-[12px]
-lg:w-4/6
 flex
 flex-col
 items-center

@@ -11,7 +11,7 @@ export const nftData = [
     text: "You've been with us for 1 year, and that's amazing!",
     description:
       "It's been 1 year since you joined Redbrick, and we couldn't be happier to have you in the family! Thank you for everything that you do, and keep on rocking.",
-    nexttitle: "What to do after you claim your NFT?"
+    nexttitle: "What's next?"
   },
   {
     id: 1,
@@ -25,7 +25,7 @@ export const nftData = [
     text: "Year 3 and we're just getting started ;)",
     description:
       "It's been 3 years already, but it feels just like yesterday you had your first tour of the office! We appreciate your time at work and love what you bring to the table. Here's to next year!",
-      nexttitle: "What to do after you claim your NFT?"
+      nexttitle: "What's next?"
   },
   {
     id: 2,

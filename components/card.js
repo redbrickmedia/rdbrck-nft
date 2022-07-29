@@ -7,7 +7,7 @@ const Card = ({ id, heading }) => {
       <div className="flex mt-4">
         <div>
           <Link href={`/${id}`}>
-            <button className="bg-white border-2 border-black text-black px-6 py-2 rounded-full transition duration-600 hover:scale-105 shadow-md hover:shadow-gray-600">
+            <button className=" uppercase tracking-[2px] text-sm bg-white text-black px-6 py-2 rounded-[100px] transition duration-600 hover:scale-105 shadow-md">
               {heading}
             </button>
           </Link>

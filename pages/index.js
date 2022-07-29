@@ -22,8 +22,11 @@ export default function Home() {
     <Container>
       <Head>
         <title>Redbrick NFT</title>
-        <meta name="Redbrick NFT" content="An NFT minting dapp created by Foster Schlienz" />
-        <link rel="icon" href="/download.png" />
+        <meta
+          name="Redbrick NFT"
+          content="An NFT minting dapp created by Foster Schlienz"
+        />
+        <link rel="icon" href="/favicon.png" />
       </Head>
 
       <Header />
@@ -57,4 +60,5 @@ h-screen
 text-white
 justify-center
 container mx-auto
+2xl:max-w-max
 `;

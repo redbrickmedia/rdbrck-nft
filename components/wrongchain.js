@@ -12,7 +12,6 @@ const Wrongchain = () => {
           params: [{ chainId: `0x${Number(80001).toString(16)}` }],
         });
       } catch (error) {
-
         if (error.code === 4902) {
           try {
             console.log("You need to add the Polygon network");
@@ -48,18 +47,17 @@ const Wrongchain = () => {
   return (
     <TitleContainer>
       <div className="grid gap-8">
-        <Title>You are not connected to Polygon!</Title>
-        <h2 className="font-light">
-          Please select the button below to automatically connect to Polygon
-          mainnet.
-        </h2>
+        <Title>To get started...</Title>
+          <p className="leading-relaxed font-[300] text-[#D8D8D8]">
+          Our NFTs are minted on the blockchain Polygon. Please click the button below to add the network to your wallet.
+          </p>
         <ChangeButton
           onClick={() => {
             changeNetwork();
             connectWithMetamask();
           }}
         >
-          Go to Polygon
+         Switch to Polygon
         </ChangeButton>
       </div>
     </TitleContainer>
@@ -69,13 +67,15 @@ const Wrongchain = () => {
 export default Wrongchain;
 
 const ChangeButton = tw.button`
+tracking-[2px]
+text-sm
+uppercase
+rounded-[100px]
   bg-white
   rounded-full
   transition
   duration-600
   hover:scale-105
-  border-2
-  border-black
   text-black
   mt-[20px]
   py-3
@@ -83,14 +83,13 @@ const ChangeButton = tw.button`
   mt-2
   w-fit
   shadow-md
-  hover:shadow-gray-600
   `;
 
 const Title = tw.h2`
-  uppercase
   text-3xl
-  font-bold
+  font-normal
   mt-2
+  tracking-wide
   `;
 const TitleContainer = tw.div`
   ml-18

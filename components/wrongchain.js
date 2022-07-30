@@ -49,7 +49,7 @@ const Wrongchain = () => {
       <div className="grid gap-5">
         <Title>Next up...</Title>
           <p className="leading-relaxed font-[300] text-[#D8D8D8]">
-          Redbrick NFTs are built on the Polygon blockchain, so we'll need to add that network to your wallet. Please click the button below to connect to Polygon.
+          Redbrick NFTs are built on the Polygon blockchain, so we&apos;ll need to add that network to your wallet. Please click the button below to connect to Polygon.
           </p>
         <ChangeButton
           onClick={() => {

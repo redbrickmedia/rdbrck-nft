@@ -2,13 +2,14 @@ import MetaMaskOnboarding from "@metamask/onboarding";
 import React from "react";
 import { nftData } from "./../components/data";
 import Card from "../components/card";
+import tw from "tailwind-styled-components";
 
 
 const ONBOARD_TEXT = "INSTALL METAMASK";
 const CONNECT_TEXT = "Connect";
 const INSTALL_BODY =
   "To get started, please create a MetaMask wallet by clicking the button below";
-const CONNECT_BODY = "Please connect your wallet to begin";
+const CONNECT_BODY = "Please connect your wallet";
 
 const forwarderOrigin = "http://localhost:3000/";
 
@@ -68,9 +69,9 @@ export function OnboardingButton() {
   return (
     <div>
       {isDisabled ? (
-        <div className="grid grid-cols-1 ml-80">
-          <p className="font-light text-2xl text-gray-200 mt-10 pr-40 ">
-            Please select the anniversary year that you are celebrating!
+        <div className="grid grid-cols-1 ml-80"> 
+          <p className="font-light text-2xl text-gray-200 mt-4 pr-40 ">
+          To get started, please select the anniversary year that you are celebrating!
           </p>
           <div className="flex items-center gap-6 mt-4">
             {nftData.map((item) => (
@@ -84,7 +85,20 @@ export function OnboardingButton() {
             {bodyText}
           </p>
           <button
-            className="bg-white mt-4 ml-80 border-2 border-black text-black px-6 py-2 rounded-full transition duration-600 hover:scale-105 shadow-md hover:shadow-gray-600"
+            className="mt-4
+            ml-80
+            uppercase
+            tracking-[2px]
+            text-xs
+            bg-white
+            rounded-[100px]
+            transition
+            duration-600
+            hover:scale-105
+            text-black
+            mt-[20px]
+            py-4
+            px-4"
             disabled={isDisabled}
             onClick={onClick}
           >
@@ -96,4 +110,12 @@ export function OnboardingButton() {
   );
 }
 
+
 export default OnboardingButton;
+
+const Title = tw.h2`
+  text-3xl
+  font-semibold
+  tracking-wide
+  mt-10
+  `;

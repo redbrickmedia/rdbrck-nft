@@ -14,8 +14,9 @@ const Buttons = (props) => {
   const [hasClaimedNFT, setHasClaimedNFT] = useState(false);
   const address = useAddress();
   const editionDrop = useEditionDrop(
-    "0x6ce3a1e56BDeDF0D2463eD5B90D954a72C2e5c5B"
+    "0x03DF2c5E067ff0e24c47386A8e5821560Dcc1e53"
   );
+
 
   console.log(address);
   console.log(props.id);
@@ -44,6 +45,7 @@ const Buttons = (props) => {
     checkBalance();
   }, [address, editionDrop]);
 
+
   const mint = async () => {
     if (editionDrop && address) {
       setInProgress(true);
@@ -55,7 +57,7 @@ const Buttons = (props) => {
     }
   };
 
-  const targetUrl = `https://testnets.opensea.io/assets/mumbai/0x6ce3a1e56BDeDF0D2463eD5B90D954a72C2e5c5B/${props.id}`;
+  const targetUrl = `https://testnet.rarible.com/token/polygon/0x03df2c5e067ff0e24c47386a8e5821560dcc1e53:${props.id}`;
 
   return (
     <div>
@@ -90,7 +92,7 @@ const Buttons = (props) => {
                       it on Polyscan{" "}
                       <a
                         target="_blank"
-                        href="https://mumbai.polygonscan.com/address/0x6ce3a1e56BDeDF0D2463eD5B90D954a72C2e5c5B"
+                        href="https://mumbai.polygonscan.com/address/0x03DF2c5E067ff0e24c47386A8e5821560Dcc1e53"
                         rel="noopener noreferrer"
                       >
                         <u>here</u>
@@ -98,13 +100,15 @@ const Buttons = (props) => {
                     </li>
                   </ul>
                   <a href={targetUrl} target="_blank" rel="noreferrer">
-                    <ViewButton>View on OpenSea</ViewButton>
+                    <ViewButton>View on Rarible</ViewButton>
                   </a>
                 </TitleContainer>
               ) : inProgress ? (
                 <TitleContainer className="grid gap-6">
                   <Title>{props.title}</Title>
-                  <h2 className="leading-relaxed font-[300] text-[#D8D8D8]">{props.des}</h2>
+                  <h2 className="leading-relaxed font-[300] text-[#D8D8D8]">
+                    {props.des}
+                  </h2>
                   <div className="pt-4">
                     <ReactLoading
                       type="bubbles"
@@ -151,14 +155,16 @@ const Buttons = (props) => {
                   <div className="flex gap-8">
                     <UnfilledButton>You already own this NFT!</UnfilledButton>
                     <a href={targetUrl} target="_blank" rel="noreferrer">
-                      <ViewButton>View on OpenSea</ViewButton>
+                      <ViewButton>View on Rarible</ViewButton>
                     </a>
                   </div>
                 </TitleContainer>
               ) : (
                 <TitleContainer className="grid gap-6">
                   <Title>{props.title}</Title>
-                  <h2 className="leading-relaxed font-[300] text-[#D8D8D8]">{props.des}</h2>
+                  <h2 className="leading-relaxed font-[300] text-[#D8D8D8]">
+                    {props.des}
+                  </h2>
                   <FilledButton
                     className="w-40"
                     disabled={inProgress}

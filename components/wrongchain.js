@@ -46,10 +46,10 @@ const Wrongchain = () => {
 
   return (
     <TitleContainer>
-      <div className="grid gap-8">
-        <Title>To get started...</Title>
+      <div className="grid gap-5">
+        <Title>Next up...</Title>
           <p className="leading-relaxed font-[300] text-[#D8D8D8]">
-          Our NFTs are minted on the blockchain Polygon. Please click the button below to add the network to your wallet.
+          Redbrick NFTs are built on the Polygon blockchain, so we'll need to add that network to your wallet. Please click the button below to connect to Polygon.
           </p>
         <ChangeButton
           onClick={() => {
@@ -87,10 +87,10 @@ rounded-[100px]
 
 const Title = tw.h2`
   text-3xl
-  font-normal
-  mt-2
+  font-semibold
   tracking-wide
   `;
+
 const TitleContainer = tw.div`
   ml-18
   text-white

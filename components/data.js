@@ -2,11 +2,10 @@ export const nftData = [
   {
     id: 0,
     heading: "1st Year",
-    title: "Happy 1 year anniversary",
+    title: "Happy 1 Year Anniversary!",
     connecttitle: "Let's get started!",
     connectdescription:
       "Please connect your MetaMask wallet by clicking on the button below and accepting the signature.",
-    image: "1.mp4",
     video: "1.mp4",
     text: "You've been with us for 1 year, and that's amazing!",
     description:
@@ -16,11 +15,10 @@ export const nftData = [
   {
     id: 1,
     heading: "3rd Year",
-    title: "Happy 3 year anniversary",
+    title: "Happy 3 Year Anniversary!",
     connecttitle: "Let's get started!",
     connectdescription:
       "Please connect your MetaMask wallet by clicking on the button below and accepting the signature.",
-    image: "3.mp4",
     video: "3.mp4",
     text: "Year 3 and we're just getting started ;)",
     description:
@@ -30,11 +28,10 @@ export const nftData = [
   {
     id: 2,
     heading: "5th Year",
-    title: "Happy 5 year anniversary",
+    title: "Happy 5 Year Anniversary!",
     connecttitle: "Let's get started!",
     connectdescription:
       "Please connect your MetaMask wallet by clicking on the button below and accepting the signature.",
-    image: "5.mp4",
     video: "5.mp4",
     text: "On the 5th year of Redbrick, my true love gave to me...",
     description:
@@ -44,12 +41,11 @@ export const nftData = [
   {
     id: 3,
     heading: "10th Year",
-    title: "Happy 10 year anniversary",
+    title: "Happy 10 Year Anniversary!",
     connecttitle: "Let's get started!",
     connectdescription:
       "Please connect your MetaMask wallet by clicking on the button below and accepting the signature.",
-    image: "/10.png",
-    video: "bg-video.mp4",
+    video: "10.mp4",
     text: "Wow, you are a certified original Redbricker!",
     description:
       "You never stop inspiring us! You have done so much during your time at Redbrick, and we appreciate your dedication. Thank you for your 10 years of service, and happy anniversary!",

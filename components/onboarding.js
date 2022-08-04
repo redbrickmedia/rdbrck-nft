@@ -2,16 +2,14 @@ import MetaMaskOnboarding from "@metamask/onboarding";
 import React from "react";
 import { nftData } from "./../components/data";
 import Card from "../components/card";
-import tw from "tailwind-styled-components";
-
 
 const ONBOARD_TEXT = "INSTALL METAMASK";
 const CONNECT_TEXT = "Connect";
 const INSTALL_BODY =
-  "To get started, please create a MetaMask wallet by clicking the button below";
-const CONNECT_BODY = "Please connect your wallet";
+  "To get started, please create a Metamask wallet by clicking the button below";
+const CONNECT_BODY = "Please connect your wallet to begin...";
 
-const forwarderOrigin = "http://localhost:3000/";
+const forwarderOrigin = "https://nft.rdbrck.com/";
 
 export function OnboardingButton() {
   const [buttonText, setButtonText] = React.useState(ONBOARD_TEXT);
@@ -20,13 +18,14 @@ export function OnboardingButton() {
   const [bodyText, setBodyText] = React.useState(INSTALL_BODY);
   const onboarding = React.useRef();
 
-
   React.useEffect(() => {
     if (!onboarding.current) {
-      onboarding.current = new MetaMaskOnboarding( forwarderOrigin, 'https://nft.rdbrck.com/' );
+      onboarding.current = new MetaMaskOnboarding(
+        forwarderOrigin,
+        "https://nft.rdbrck.com/"
+      );
     }
   }, []);
-
 
   React.useEffect(() => {
     if (MetaMaskOnboarding.isMetaMaskInstalled()) {
@@ -69,11 +68,12 @@ export function OnboardingButton() {
   return (
     <div>
       {isDisabled ? (
-        <div className="grid grid-cols-1 ml-80"> 
-          <p className="font-light text-2xl text-gray-200 mt-4 pr-40 ">
-          To get started, please select the anniversary year that you are celebrating!
+        <div className="md:ml-24">
+          <p className="font-light text-2xl 3xl:text-4xl text-gray-200 3xl:mt-10 mt-6 lg:pr-40 2xl:pr-2">
+            To get started, please select the anniversary year that you are
+            celebrating!
           </p>
-          <div className="flex items-center gap-6 mt-4">
+          <div className="flex flex-wrap lg:w-4/6">
             {nftData.map((item) => (
               <Card key={item.id} {...item} />
             ))}
@@ -81,15 +81,18 @@ export function OnboardingButton() {
         </div>
       ) : (
         <div>
-          <p className="font-light text-2xl text-gray-200 ml-80 mt-10 pr-40 ">
+          <p className="font-light text-2xl 3xl:text-3xl text-gray-200 mt-6 md:ml-24 lg:pr-40 2xl:pr-2 ">
             {bodyText}
           </p>
           <button
-            className="mt-4
-            ml-80
+            className="mt-8
+            sm:mt-10
+            md:ml-24
+            justify-center
             uppercase
             tracking-[2px]
             text-xs
+            3xl:text-xl
             bg-white
             rounded-[100px]
             transition
@@ -97,8 +100,11 @@ export function OnboardingButton() {
             hover:scale-105
             text-black
             mt-[20px]
-            py-4
-            px-4"
+            py-3
+            px-10
+            h-10
+            3xl:h-16
+            "
             disabled={isDisabled}
             onClick={onClick}
           >
@@ -110,12 +116,4 @@ export function OnboardingButton() {
   );
 }
 
-
 export default OnboardingButton;
-
-const Title = tw.h2`
-  text-3xl
-  font-semibold
-  tracking-wide
-  mt-10
-  `;

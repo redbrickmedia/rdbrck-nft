@@ -46,7 +46,7 @@ export default function Mint() {
       >
         <div className="mt-20 flex items-center justify-center">
           <MainContainer>
-            <div className="flex items-center justify-center flex-col lg:flex-row">
+            <div className="flex items-center justify-center flex-col lg:flex-row lg:mx-16">
               <VideoContainer>
               <video autoPlay={true} loop muted style={{ width: '368px', height: '368px' }}>
                   <source src={data.video} />
@@ -88,7 +88,7 @@ backdrop-blur-sm
 bg-opacity-60
 shadow-black
 shadow-3xl
-mt-20
+mt-4
 bg-[#151515]
 rounded-[12px]
 flex

@@ -10,7 +10,7 @@ const pageVariants = {
     opacity: 0,
   },
   in: {
-    opacity: 5,
+    opacity: 1,
   },
   out: {
     opacity: 0,
@@ -31,21 +31,21 @@ export default function Home() {
 
       <Header />
       <motion.div
+        className="px-10 text-center md:text-left"
         initial="initial"
         animate="in"
         exit="out"
         variants={pageVariants}
       >
-        <div className="ml-60 mt-16">
+        <div className="md:ml-2 md:mt-2">
           <div className="flex">
-            <div className="ml-20 pt-20 text-start text-white lg:w-2/3">
-              <h1 className="text-6xl font-semibold leading-normal">
+            <div className="md:ml-20 pt-20 text-white">
+              <h1 className="text-4xl lg:text-[54px] 3xl:text-[84px] 2xl:w-5/6 3xl:w-full font-semibold tracking-normal leading-relaxed lg:leading-normal 3xl:leading-relaxed">
                 Congratulations, we&apos;re so happy to celebrate your time with
                 Redbrick!
               </h1>
             </div>
           </div>
-          <div className="flex gap-10 place-items-center mt-4 ml-20"></div>
         </div>
         <OnboardingButton />
         <Footer />
@@ -60,5 +60,4 @@ h-screen
 text-white
 justify-center
 container mx-auto
-2xl:max-w-max
-`;
+`

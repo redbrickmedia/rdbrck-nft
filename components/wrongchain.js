@@ -48,7 +48,7 @@ const Wrongchain = () => {
     <TitleContainer>
       <div className="grid gap-5">
         <Title>Next up...</Title>
-          <p className="leading-relaxed font-[300] text-[#D8D8D8]">
+          <p className="leading-relaxed font-[300] text-[#D8D8D8] 3xl:text-2xl 3xl:leading-relaxed">
           Redbrick NFTs are built on the Polygon blockchain, so we&apos;ll need to add that network to your wallet. Please click the button below to connect to Polygon.
           </p>
         <ChangeButton
@@ -69,6 +69,7 @@ export default Wrongchain;
 const ChangeButton = tw.button`
 tracking-[2px]
 text-sm
+3xl:text-lg
 uppercase
 rounded-[100px]
   bg-white
@@ -78,15 +79,17 @@ rounded-[100px]
   hover:scale-105
   text-black
   mt-[20px]
-  py-3
   px-7
   mt-2
   w-fit
+  h-10
+  3xl:h-16
   shadow-md
   `;
 
 const Title = tw.h2`
   text-3xl
+  3xl:text-5xl
   font-semibold
   tracking-wide
   `;
@@ -100,4 +103,5 @@ const TitleContainer = tw.div`
   flex-col
   max-w-screen-sm
   mt-[-50px]
+  3xl:p-12
   `;

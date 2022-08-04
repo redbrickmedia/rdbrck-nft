@@ -45,7 +45,6 @@ const Buttons = (props) => {
     checkBalance();
   }, [address, editionDrop]);
 
-
   const mint = async () => {
     if (editionDrop && address) {
       setInProgress(true);
@@ -68,7 +67,7 @@ const Buttons = (props) => {
               {completed ? (
                 <TitleContainer className="grid gap-6">
                   <Title>{props.nexttitle}</Title>
-                  <ul className="list-disc ml-6 leading-relaxed font-[300] text-[#D8D8D8]">
+                  <ul className="list-disc ml-6 leading-relaxed font-[300] text-[#D8D8D8] 3xl:text-2xl 3xl:leading-relaxed">
                     <li>
                       Share it by posting the file or the listing URL from
                       OpenSea to your social networks like LinkedIn
@@ -106,7 +105,7 @@ const Buttons = (props) => {
               ) : inProgress ? (
                 <TitleContainer className="grid gap-6">
                   <Title>{props.title}</Title>
-                  <h2 className="leading-relaxed font-[300] text-[#D8D8D8]">
+                  <h2 className="leading-relaxed font-[300] text-[#D8D8D8] pr-10 3xl:text-2xl 3xl:leading-relaxed">
                     {props.des}
                   </h2>
                   <div className="pt-4">
@@ -121,7 +120,7 @@ const Buttons = (props) => {
               ) : hasClaimedNFT ? (
                 <TitleContainer className="grid gap-6">
                   <Title>{props.nexttitle}</Title>
-                  <ul className="list-disc ml-6 leading-relaxed font-[300] text-[#D8D8D8]">
+                  <ul className="list-disc ml-6 leading-relaxed font-[300] text-[#D8D8D8] 3xl:text-2xl 3xl:leading-relaxed">
                     <li>
                       Share it by posting the file or the listing URL from
                       OpenSea to your social networks like LinkedIn
@@ -162,7 +161,7 @@ const Buttons = (props) => {
               ) : (
                 <TitleContainer className="grid gap-6">
                   <Title>{props.title}</Title>
-                  <h2 className="leading-relaxed font-[300] text-[#D8D8D8]">
+                  <h2 className="leading-relaxed font-[300] text-[#D8D8D8] 3xl:text-2xl 3xl:leading-relaxed">
                     {props.des}
                   </h2>
                   <FilledButton
@@ -195,7 +194,7 @@ const Mint = tw.div`
 const FilledButton = tw.button`
 uppercase
 tracking-[2px]
-text-xs
+text-sm
 bg-white
 rounded-[100px]
 transition
@@ -203,14 +202,15 @@ duration-600
 hover:scale-105
 text-black
 mt-[20px]
-py-4
 px-4
+h-10
   `;
 
 const ViewButton = tw.button`
 uppercase
 tracking-[2px]
 text-xs
+3xl:text-xl
 bg-white
 rounded-[100px]
 transition
@@ -218,29 +218,32 @@ duration-600
 hover:scale-105
 text-black
 mt-[20px]
-py-4
 px-4
+py-3
+text-center
 `;
 
 const UnfilledButton = tw.div`
   uppercase
   tracking-[2px]
   text-xs
+  3xl:text-xl
   bg-[#202020]
   rounded-[100px]
   text-[#989898]
   mt-[20px]
-  py-4
+  py-3
   px-4
+  text-center
 `;
 
 const ButtonContainer = tw.div`
   flex
   mt-6
-  mr-10
   `;
 
 const Title = tw.h2`
+3xl:text-5xl
   text-3xl
   font-bold
   mt-2

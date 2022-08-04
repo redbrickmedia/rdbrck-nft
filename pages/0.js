@@ -42,9 +42,9 @@ export default function Mint() {
         exit="out"
         variants={pageVariants}
       >
-        <div className="mt-20 flex items-center justify-center">
+        <div className="sm:mt-20 flex items-center justify-center">
           <MainContainer>
-            <div className="flex items-center justify-center flex-col lg:flex-row">
+            <div className="flex items-center justify-center flex-col lg:flex-row lg:mx-16">
               <VideoContainer>
                 <video
                   autoPlay={true}
@@ -90,13 +90,14 @@ backdrop-blur-sm
 bg-opacity-60
 shadow-black
 shadow-3xl
-mt-20
+mt-4
 bg-[#151515]
 rounded-[12px]
 flex
 flex-col
 items-center
 grid-rows-{n}
+
 `;
 
 const VideoContainer = tw.div`
@@ -109,8 +110,6 @@ p-10
 `;
 
 const Container = tw.div`
-w-full
-min-h-screen
 text-white
 justify-center
 container mx-auto

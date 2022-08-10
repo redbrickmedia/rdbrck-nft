@@ -9,7 +9,7 @@ import React from "react";
 
 const Buttons = (props) => {
   const chainId = useChainId();
-  const [inProgress, setInProgress] = useState(true);
+  const [inProgress, setInProgress] = useState(false);
   const [completed, setCompleted] = useState(false);
   const [hasClaimedNFT, setHasClaimedNFT] = useState(false);
   const address = useAddress();
@@ -109,7 +109,10 @@ const Buttons = (props) => {
                     {props.des}
                   </h2>
                   <div className="flex items-center">
-                    <p>Sign the transaction and wait until the minting process is complete</p>
+                    <p>
+                      Sign the transaction and wait until the minting process is
+                      complete
+                    </p>
                     <ReactLoading
                       type="bubbles"
                       color="#FFFFFF"

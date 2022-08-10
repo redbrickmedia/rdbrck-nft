@@ -70,7 +70,7 @@ export function OnboardingButton() {
       {isDisabled ? (
         <div className="">
           <p className="text-center justify-center font-light text-base lg:text-2xl 3xl:text-4xl text-gray-200 3xl:mt-10 mt-6">
-            Let's get started! Please select the anniversary year that you are
+            Let&apos;s get started! Please select the anniversary year that you are
             celebrating below.
           </p>
           <div className="flex flex-wrap justify-center gap-10 lg:gap-16">

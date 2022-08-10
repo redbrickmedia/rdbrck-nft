@@ -4,9 +4,9 @@ import { nftData } from "./../components/data";
 import Card from "../components/card";
 
 const ONBOARD_TEXT = "INSTALL METAMASK";
-const CONNECT_TEXT = "Connect";
+const CONNECT_TEXT = "Connect wallet";
 const INSTALL_BODY =
-  "To get started, please create a Metamask wallet by clicking the button below";
+  "To claim your NFT, please install Metamask by clicking the button below";
 const CONNECT_BODY = "Please connect your wallet to begin...";
 
 const forwarderOrigin = "https://nft.rdbrck.com/";
@@ -68,12 +68,12 @@ export function OnboardingButton() {
   return (
     <div>
       {isDisabled ? (
-        <div className="md:ml-24">
-          <p className="font-light text-2xl 3xl:text-4xl text-gray-200 3xl:mt-10 mt-6 lg:pr-40 2xl:pr-2">
-            To get started, please select the anniversary year that you are
-            celebrating!
+        <div className="">
+          <p className="text-center justify-center font-light text-base lg:text-2xl 3xl:text-4xl text-gray-200 3xl:mt-10 mt-6">
+            Let's get started! Please select the anniversary year that you are
+            celebrating below.
           </p>
-          <div className="flex flex-wrap lg:w-4/6">
+          <div className="flex flex-wrap justify-center gap-10 lg:gap-16">
             {nftData.map((item) => (
               <Card key={item.id} {...item} />
             ))}
@@ -81,13 +81,12 @@ export function OnboardingButton() {
         </div>
       ) : (
         <div>
-          <p className="font-light text-2xl 3xl:text-3xl text-gray-200 mt-6 md:ml-24 lg:pr-40 2xl:pr-2 ">
+          <p className="font-light text-2xl 2xl:text-3xl text-gray-200 mt-6">
             {bodyText}
           </p>
           <button
             className="mt-8
             sm:mt-10
-            md:ml-24
             justify-center
             uppercase
             tracking-[2px]

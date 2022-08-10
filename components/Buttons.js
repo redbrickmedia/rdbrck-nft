@@ -5,11 +5,11 @@ import ReactLoading from "react-loading";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Wrongchain from "./wrongchain";
+import React from "react";
 
 const Buttons = (props) => {
   const chainId = useChainId();
-  console.log(chainId);
-  const [inProgress, setInProgress] = useState(false);
+  const [inProgress, setInProgress] = useState(true);
   const [completed, setCompleted] = useState(false);
   const [hasClaimedNFT, setHasClaimedNFT] = useState(false);
   const address = useAddress();
@@ -17,9 +17,9 @@ const Buttons = (props) => {
     "0x03DF2c5E067ff0e24c47386A8e5821560Dcc1e53"
   );
 
-
   console.log(address);
   console.log(props.id);
+  console.log(chainId);
 
   const checkBalance = async () => {
     try {
@@ -52,7 +52,7 @@ const Buttons = (props) => {
       console.log(tx);
       setInProgress(false);
       setCompleted(true);
-      toast.success("Mint Succesful!");
+      toast.success("Mint successful!");
     }
   };
 
@@ -70,10 +70,10 @@ const Buttons = (props) => {
                   <ul className="list-disc ml-6 leading-relaxed font-[300] text-[#D8D8D8] 3xl:text-2xl 3xl:leading-relaxed">
                     <li>
                       Share it by posting the file or the listing URL from
-                      OpenSea to your social networks like LinkedIn
+                      Rarible to your social networks like LinkedIn
                     </li>
                     <li>
-                      View your NFTs on OpenSea by clicking the button below
+                      View your NFTs on Rarible by clicking the button below
                     </li>
                     <li>
                       You can visit{" "}
@@ -108,12 +108,13 @@ const Buttons = (props) => {
                   <h2 className="leading-relaxed font-[300] text-[#D8D8D8] pr-10 3xl:text-2xl 3xl:leading-relaxed">
                     {props.des}
                   </h2>
-                  <div className="pt-4">
+                  <div className="flex items-center">
+                    <p>Sign the transaction and wait until the minting process is complete</p>
                     <ReactLoading
                       type="bubbles"
                       color="#FFFFFF"
-                      height={30}
-                      width={65}
+                      height={10}
+                      width={19}
                     />
                   </div>
                 </TitleContainer>
@@ -123,10 +124,10 @@ const Buttons = (props) => {
                   <ul className="list-disc ml-6 leading-relaxed font-[300] text-[#D8D8D8] 3xl:text-2xl 3xl:leading-relaxed">
                     <li>
                       Share it by posting the file or the listing URL from
-                      OpenSea to your social networks like LinkedIn
+                      Rarible to your social networks like LinkedIn
                     </li>
                     <li>
-                      View your NFTs on OpenSea by clicking the button below
+                      View your NFTs on Rarible by clicking the button below
                     </li>
                     <li>
                       You can visit{" "}
@@ -210,7 +211,7 @@ const ViewButton = tw.button`
 uppercase
 tracking-[2px]
 text-xs
-3xl:text-xl
+3xl:text-base
 bg-white
 rounded-[100px]
 transition
@@ -227,7 +228,7 @@ const UnfilledButton = tw.div`
   uppercase
   tracking-[2px]
   text-xs
-  3xl:text-xl
+  3xl:text-base
   bg-[#202020]
   rounded-[100px]
   text-[#989898]
@@ -243,7 +244,7 @@ const ButtonContainer = tw.div`
   `;
 
 const Title = tw.h2`
-3xl:text-5xl
+3xl:text-4xl
   text-3xl
   font-bold
   mt-2

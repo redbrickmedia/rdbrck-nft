@@ -31,7 +31,10 @@ export default function Mint() {
     <Container>
       <Head>
         <title>Redbrick NFT</title>
-        <meta name="Redbrick NFT" content="An NFT minting dapp created by Foster Schlienz" />
+        <meta
+          name="Redbrick NFT"
+          content="An NFT minting dapp created by Foster Schlienz"
+        />
         <link rel="icon" href="/favicon.png" />
       </Head>
 
@@ -44,27 +47,22 @@ export default function Mint() {
       >
         <div className="sm:mt-20 flex items-center justify-center">
           <MainContainer>
-            <div className="flex items-center justify-center flex-col lg:flex-row lg:mx-16">
-              <VideoContainer>
-                <video
-                  autoPlay={true}
-                  loop
-                  muted
-                  style={{ width: "368px", height: "368px" }}
-                >
-                  <source src={data.video} />
-                </video>
-              </VideoContainer>
-              <div>
-                <Minting
-                  des={data.description}
-                  title={data.title}
-                  id={data.id}
-                  connect={data.connecttitle}
-                  connectdes={data.connectdescription}
-                  nexttitle={data.nexttitle}
-                />
-              </div>
+          <div className="flex items-center justify-center flex-col lg:flex-row lg:mx-16">
+            <VideoContainer>
+              <video autoPlay={true} loop muted>
+                <source src={data.video} />
+              </video>
+            </VideoContainer>
+            <div>
+              <Minting
+                des={data.description}
+                title={data.title}
+                id={data.id}
+                connect={data.connecttitle}
+                connectdes={data.connectdescription}
+                nexttitle={data.nexttitle}
+              />
+            </div>
             </div>
           </MainContainer>
         </div>
@@ -72,9 +70,8 @@ export default function Mint() {
       </motion.div>
       <ToastContainer
         position="bottom-center"
-        autoClose={3200}
         hideProgressBar={false}
-        newestOnTop={false}
+        newestOnTop
         closeOnClick
         rtl={false}
         pauseOnFocusLoss
@@ -96,17 +93,22 @@ rounded-[12px]
 flex
 flex-col
 items-center
-grid-rows-{n}
-
+border
+border-neutral-800
+border-2
 `;
 
 const VideoContainer = tw.div`
 items-center
 flex
 justify-center
-max-w-md
-grid-rows-{n}
-p-10
+py-10
+pr-10
+pl-10
+lg:pl-0
+w-full
+lg:max-w-lg
+3xl:max-w-2xl
 `;
 
 const Container = tw.div`

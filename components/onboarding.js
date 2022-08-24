@@ -1,8 +1,8 @@
 import MetaMaskOnboarding from "@metamask/onboarding";
 import React from "react";
-import { nftData } from "./Data";
-import Card from "./Card";
-import { useProgressContext } from "../Context/ProgressContext";
+import { nftData } from "./../components/data";
+import Card from "../components/card";
+import { useProgressContext } from "./../Context/ProgressContext";
 
 const ONBOARD_TEXT = "INSTALL METAMASK";
 const CONNECT_TEXT = "Connect wallet";

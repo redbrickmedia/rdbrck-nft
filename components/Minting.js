@@ -1,5 +1,5 @@
 import tw from "tailwind-styled-components";
-import Buttons from "../components/Buttons";
+import Buttons from "../components/buttons";
 
 const Minting = (props) => {
   return (

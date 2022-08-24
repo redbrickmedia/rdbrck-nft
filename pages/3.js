@@ -1,5 +1,5 @@
-import React, {useEffect} from "react";
-import { nftData } from "../components/Data";
+import React, { useEffect } from "react";
+import { nftData } from "../components/data";
 import Head from "next/head";
 import tw from "tailwind-styled-components";
 import Header from "../components/Header";
@@ -14,25 +14,24 @@ export default function Mint() {
   const progressState = useProgressContext();
 
   useEffect(() => {
-    
-      progressState.setProgress((prevValue) => [
-        ...prevValue
-          .filter((x) => x.id < 3)
-          .map((y) => {
-            return { ...y, active: false };
-          }),
-        ...prevValue
-          .filter((x) => x.id === 3)
-          .map((y) => {
-            return { ...y, active: true };
-          }),
-          ...prevValue
-          .filter((x) => x.id > 3)
-          .map((y) => {
-            return { ...y, active: false };
-          }),
-      ]);
-  },[]);
+    progressState.setProgress((prevValue) => [
+      ...prevValue
+        .filter((x) => x.id < 3)
+        .map((y) => {
+          return { ...y, active: false };
+        }),
+      ...prevValue
+        .filter((x) => x.id === 3)
+        .map((y) => {
+          return { ...y, active: true };
+        }),
+      ...prevValue
+        .filter((x) => x.id > 3)
+        .map((y) => {
+          return { ...y, active: false };
+        }),
+    ]);
+  }, []);
 
   if (!data) {
     return "Not Found";

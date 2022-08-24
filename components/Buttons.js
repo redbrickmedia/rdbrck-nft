@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import ReactLoading from "react-loading";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Wrongchain from "./Wrongchain";
+import Wrongchain from "./wrongchain";
 import React from "react";
 import { useProgressContext } from "./../Context/ProgressContext";
 

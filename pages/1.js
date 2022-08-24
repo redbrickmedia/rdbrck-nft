@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { nftData } from "../components/Data";
+import { nftData } from "../components/data";
 import Head from "next/head";
 import tw from "tailwind-styled-components";
 import Header from "../components/Header";

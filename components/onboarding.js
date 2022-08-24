@@ -1,8 +1,8 @@
 import MetaMaskOnboarding from "@metamask/onboarding";
 import React from "react";
-import { nftData } from "./../components/data";
-import Card from "../components/card";
-import { useProgressContext } from "./../Context/ProgressContext";
+import { nftData } from "./Data";
+import Card from "./Card";
+import { useProgressContext } from "../Context/ProgressContext";
 
 const ONBOARD_TEXT = "INSTALL METAMASK";
 const CONNECT_TEXT = "Connect wallet";
@@ -45,7 +45,7 @@ export function OnboardingButton() {
             .map((y) => {
               return { ...y, active: true };
             }),
-            ...prevValue
+          ...prevValue
             .filter((x) => x.id > 2)
             .map((y) => {
               return { ...y, active: false };

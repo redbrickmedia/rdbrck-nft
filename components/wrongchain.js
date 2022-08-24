@@ -8,8 +8,7 @@ const Wrongchain = () => {
       try {
         await window.ethereum.request({
           method: "wallet_switchEthereumChain",
-          //change (80001) to (137) for mainnet deployment
-          params: [{ chainId: `0x${Number(80001).toString(16)}` }],
+          params: [{ chainId: `0x${Number(137).toString(16)}` }],
         });
       } catch (error) {
         if (error.code === 4902) {
@@ -19,19 +18,18 @@ const Wrongchain = () => {
               method: "wallet_addEthereumChain",
               params: [
                 {
-                  chainId: `0x${Number(80001).toString(16)}`,
-                  chainName: "Polygon Mumbai",
+                  chainId: `0x${Number(137).toString(16)}`,
+                  chainName: "Polygon",
                   rpcUrls: [
-                    //if issues arise with the rpc url here, replace with https://polygon-rpc.com/. this is a public rpc endpoint.
-                    "https://dark-winter-bush.matic-testnet.discover.quiknode.pro/26b09c11066a1762b3041984425f6786c2cd5174/",
+                    //if issues arise with the rpc url, you can replace this with https://polygon-rpc.com/. This is a public rpc endpoint.
+                    "https://red-smart-fog.matic.discover.quiknode.pro/dce86fbc95090f14745addc4ea8d8fdf47f39a13/",
                   ],
                   nativeCurrency: {
                     name: "MATIC",
                     symbol: "MATIC",
                     decimals: 18,
                   },
-                  // update block explorer to mainnet
-                  blockExplorerUrls: ["https://mumbai.polygonscan.com/"],
+                  blockExplorerUrls: ["https://polygonscan.com/"],
                 },
               ],
             });

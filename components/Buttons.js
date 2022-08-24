@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import ReactLoading from "react-loading";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Wrongchain from "./wrongchain";
+import Wrongchain from "./Wrongchain";
 import React from "react";
 import { useProgressContext } from "./../Context/ProgressContext";
 
@@ -16,13 +16,9 @@ const Buttons = (props) => {
   const [hasClaimedNFT, setHasClaimedNFT] = useState(false);
   const address = useAddress();
   const editionDrop = useEditionDrop(
-    "0x03DF2c5E067ff0e24c47386A8e5821560Dcc1e53"
+    "0xbc5987d464c871C123BE8bb8F4fa656D57C710d9"
   );
   const progressState = useProgressContext();
-
-  // console.log(address);
-  // console.log(props.id);
-  // console.log(chainId);
 
   const checkBalance = async () => {
     try {
@@ -52,7 +48,7 @@ const Buttons = (props) => {
   }, [address, editionDrop]);
 
   useEffect(() => {
-    if (chainId === 80001) {
+    if (chainId === 137) {
       progressState.setProgress((prevValue) => [
         ...prevValue
           .filter((x) => x.id < 4)
@@ -92,16 +88,16 @@ const Buttons = (props) => {
       console.log(tx);
       setInProgress(false);
       setCompleted(true);
-      toast.success("Mint successful!");
+      toast.success("NFT claimed successfully!");
     }
   };
 
-  const targetUrl = `https://testnet.rarible.com/token/polygon/0x03df2c5e067ff0e24c47386a8e5821560dcc1e53:${props.id}`;
+  const targetUrl = `https://rarible.com/token/polygon/0xbc5987d464c871C123BE8bb8F4fa656D57C710d9:${props.id}`;
 
   return (
     <div>
       <ButtonContainer className="gap-8">
-        {chainId === 80001 ? (
+        {chainId === 137 ? (
           <Mint>
             <div className="flex gap-6">
               {completed ? (
@@ -130,7 +126,7 @@ const Buttons = (props) => {
                       it on Polyscan{" "}
                       <a
                         target="_blank"
-                        href="https://mumbai.polygonscan.com/address/0x03DF2c5E067ff0e24c47386A8e5821560Dcc1e53"
+                        href="https://polygonscan.com/address/0xbc5987d464c871C123BE8bb8F4fa656D57C710d9"
                         rel="noopener noreferrer"
                       >
                         <u>here</u>
@@ -148,9 +144,9 @@ const Buttons = (props) => {
                     {props.des}
                   </h2>
                   <div className="flex items-center">
-                    <p>
-                      Sign the transaction and wait until the minting process is
-                      complete
+                    <p className="font-extralight">
+                      Please confirm the transaction and wait until the claim
+                      process is complete
                     </p>
                     <ReactLoading
                       type="bubbles"
@@ -186,7 +182,7 @@ const Buttons = (props) => {
                       it on Polyscan{" "}
                       <a
                         target="_blank"
-                        href="https://mumbai.polygonscan.com/address/0x6ce3a1e56BDeDF0D2463eD5B90D954a72C2e5c5B"
+                        href="https://polygonscan.com/address/0xbc5987d464c871C123BE8bb8F4fa656D57C710d9"
                         rel="noopener noreferrer"
                       >
                         <u>here</u>
@@ -211,8 +207,12 @@ const Buttons = (props) => {
                     disabled={inProgress}
                     onClick={mint}
                   >
-                    Mint
+                    Claim NFT
                   </FilledButton>
+                  <p className="font-thin text-xs 3xl:text-base">
+                    Tip: when you click Claim NFT, this NFT will be added to
+                    your wallet.
+                  </p>
                 </TitleContainer>
               )}
             </div>

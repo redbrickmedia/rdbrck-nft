@@ -1,5 +1,5 @@
 import React, {useEffect} from "react";
-import { nftData } from "../components/data";
+import { nftData } from "../components/Data";
 import Head from "next/head";
 import tw from "tailwind-styled-components";
 import Header from "../components/Header";
@@ -62,7 +62,7 @@ export default function Mint() {
           <link rel="icon" href="/favicon.png" />
         </Head>
 
-        <Header iswhite />
+        <Header />
         <motion.div
           initial="initial"
           animate="in"

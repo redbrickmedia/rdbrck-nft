@@ -1,5 +1,5 @@
-import React, {useEffect} from "react";
-import { nftData } from "../components/data";
+import React, { useEffect } from "react";
+import { nftData } from "../components/Data";
 import Head from "next/head";
 import tw from "tailwind-styled-components";
 import Header from "../components/Header";
@@ -14,25 +14,24 @@ export default function Mint() {
   const progressState = useProgressContext();
 
   useEffect(() => {
-    
-      progressState.setProgress((prevValue) => [
-        ...prevValue
-          .filter((x) => x.id < 3)
-          .map((y) => {
-            return { ...y, active: false };
-          }),
-        ...prevValue
-          .filter((x) => x.id === 3)
-          .map((y) => {
-            return { ...y, active: true };
-          }),
-          ...prevValue
-          .filter((x) => x.id > 3)
-          .map((y) => {
-            return { ...y, active: false };
-          }),
-      ]);
-  },[]);
+    progressState.setProgress((prevValue) => [
+      ...prevValue
+        .filter((x) => x.id < 3)
+        .map((y) => {
+          return { ...y, active: false };
+        }),
+      ...prevValue
+        .filter((x) => x.id === 3)
+        .map((y) => {
+          return { ...y, active: true };
+        }),
+      ...prevValue
+        .filter((x) => x.id > 3)
+        .map((y) => {
+          return { ...y, active: false };
+        }),
+    ]);
+  }, []);
 
   if (!data) {
     return "Not Found";
@@ -62,7 +61,7 @@ export default function Mint() {
           <link rel="icon" href="/favicon.png" />
         </Head>
 
-        <Header iswhite />
+        <Header />
         <motion.div
           initial="initial"
           animate="in"

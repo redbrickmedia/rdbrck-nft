@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React from "react";
-import { useProgressContext } from "./../Context/ProgressContext";
+import { useProgressContext } from "../Context/ProgressContext";
 
 const Card = ({ id, heading }) => {
 

@@ -2,12 +2,13 @@ import MetaMaskOnboarding from "@metamask/onboarding";
 import React from "react";
 import { nftData } from "./../components/data";
 import Card from "../components/card";
+import { useProgressContext } from "./../Context/ProgressContext";
 
 const ONBOARD_TEXT = "INSTALL METAMASK";
 const CONNECT_TEXT = "Connect wallet";
 const INSTALL_BODY =
   "To claim your NFT, please install Metamask by clicking the button below";
-const CONNECT_BODY = "Please connect your wallet to begin...";
+const CONNECT_BODY = "To claim your NFT, please connect your wallet";
 
 const forwarderOrigin = "https://nft.rdbrck.com/";
 
@@ -17,6 +18,7 @@ export function OnboardingButton() {
   const [accounts, setAccounts] = React.useState([]);
   const [bodyText, setBodyText] = React.useState(INSTALL_BODY);
   const onboarding = React.useRef();
+  const progressState = useProgressContext();
 
   React.useEffect(() => {
     if (!onboarding.current) {
@@ -32,6 +34,23 @@ export function OnboardingButton() {
       if (accounts.length > 0) {
         setDisabled(true);
         onboarding.current.stopOnboarding();
+        progressState.setProgress((prevValue) => [
+          ...prevValue
+            .filter((x) => x.id < 2)
+            .map((y) => {
+              return { ...y, active: false };
+            }),
+          ...prevValue
+            .filter((x) => x.id === 2)
+            .map((y) => {
+              return { ...y, active: true };
+            }),
+            ...prevValue
+            .filter((x) => x.id > 2)
+            .map((y) => {
+              return { ...y, active: false };
+            }),
+        ]);
       } else {
         setBodyText(CONNECT_BODY);
         setButtonText(CONNECT_TEXT);
@@ -65,13 +84,14 @@ export function OnboardingButton() {
       onboarding.current.startOnboarding();
     }
   };
+
   return (
     <div>
       {isDisabled ? (
         <div className="">
           <p className="text-center justify-center font-light text-base lg:text-2xl 3xl:text-4xl text-gray-200 3xl:mt-10 mt-6">
-            Let&apos;s get started! Please select the anniversary year that you are
-            celebrating below.
+            Let&apos;s get started. Please select the anniversary year that you
+            are celebrating below.
           </p>
           <div className="flex flex-wrap justify-center gap-10 lg:gap-16">
             {nftData.map((item) => (
@@ -81,7 +101,7 @@ export function OnboardingButton() {
         </div>
       ) : (
         <div>
-          <p className="font-light text-2xl 2xl:text-3xl text-gray-200 mt-6">
+          <p className="font-light text-2xl 3xl:text-3xl text-gray-200 mt-6">
             {bodyText}
           </p>
           <button

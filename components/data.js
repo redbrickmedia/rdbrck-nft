@@ -22,7 +22,7 @@ export const nftData = [
     video: "3.mp4",
     text: "Year 3 and we're just getting started ;)",
     description:
-      "It's been 3 years already, but it feels just like yesterday you had your first tour of the office! We appreciate your time at work and love what you bring to the table. Here's to next year!",
+      "It's been 3 years already, but seems like just yesterday you had your first tour of the office! We appreciate your time and love what you bring to the table. Here's to next year!",
       nexttitle: "What's next?"
   },
   {
@@ -35,7 +35,7 @@ export const nftData = [
     video: "5.mp4",
     text: "On the 5th year of Redbrick, my true love gave to me...",
     description:
-      "Slow down there speed racer, it's your 5th year anniversary at Redbrick! You've probably seen a lot of changes in that time, but your unique work can never be replaced. Cheers to you, and happy anniversary!",
+      "Slow down there speed racer, it's your 5th anniversary at Redbrick! You've probably seen a lot of changes in that time, but your unique work can never be replaced. Cheers to you - and happy anniversary!",
       nexttitle: "What's next?"
   },
   {
@@ -48,7 +48,7 @@ export const nftData = [
     video: "10.mp4",
     text: "Wow, you are a certified original Redbricker!",
     description:
-      "You never stop inspiring us! You have done so much during your time at Redbrick, and we appreciate your dedication. Thank you for your 10 years of service, and happy anniversary!",
+      "You never stop inspiring us! You have done so much during your time at Redbrick, and we appreciate your dedication. Thank you for your 10 amazing years, and happy anniversary!",
       nexttitle: "What's next?"
   },
 ];

@@ -1,17 +1,40 @@
 
-import React from "react";
+import React, {useEffect} from "react";
 import { nftData } from "../components/data";
 import Head from "next/head";
 import tw from "tailwind-styled-components";
 import Header from "../components/Header";
-import Footer from "../components/Footer";
+import ProgressBar from "../components/ProgressBar";
 import Minting from "../components/Minting";
 import { ToastContainer } from "react-toastify";
 import { motion } from "framer-motion";
+import { useProgressContext } from "./../Context/ProgressContext";
 
 export default function Mint() {
 
   const data = nftData.find((x) => x.id == 2);
+  const progressState = useProgressContext();
+
+  useEffect(() => {
+    
+      progressState.setProgress((prevValue) => [
+        ...prevValue
+          .filter((x) => x.id < 3)
+          .map((y) => {
+            return { ...y, active: false };
+          }),
+        ...prevValue
+          .filter((x) => x.id === 3)
+          .map((y) => {
+            return { ...y, active: true };
+          }),
+          ...prevValue
+          .filter((x) => x.id > 3)
+          .map((y) => {
+            return { ...y, active: false };
+          }),
+      ]);
+  },[]);
 
   if (!data) {
     return "Not Found";
@@ -30,6 +53,7 @@ export default function Mint() {
   };
 
   return (
+    <div>
     <Container>
       <Head>
         <title>Redbrick NFT</title>
@@ -44,7 +68,7 @@ export default function Mint() {
         exit="out"
         variants={pageVariants}
       >
-        <div className="mt-20 flex items-center justify-center">
+        <div className="lg:mt-10 flex items-center justify-center">
           <MainContainer>
             <div className="flex items-center justify-center flex-col lg:flex-row lg:mx-16">
               <VideoContainer>
@@ -65,10 +89,9 @@ export default function Mint() {
             </div>
           </MainContainer>
         </div>
-        <Footer />
       </motion.div>
       <ToastContainer
-        position="bottom-center"
+        position="top-right"
         autoClose={3200}
         hideProgressBar={false}
         newestOnTop={false}
@@ -80,6 +103,8 @@ export default function Mint() {
         limit={1}
       />
     </Container>
+    <ProgressBar />
+    </div>
   );
 }
 
@@ -108,7 +133,7 @@ pr-10
 pl-10
 lg:pl-0
 w-full
-lg:max-w-lg
+lg:max-w-md
 3xl:max-w-2xl
 `;
 

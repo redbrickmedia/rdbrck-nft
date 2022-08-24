@@ -1,4 +1,3 @@
-import tw from "tailwind-styled-components";
 import React from "react";
 import { useState } from "react";
 import { useProgressContext } from "./../Context/ProgressContext";

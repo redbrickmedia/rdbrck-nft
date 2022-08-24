@@ -1,10 +1,8 @@
 import React from "react";
-import { useState } from "react";
 import { useProgressContext } from "./../Context/ProgressContext";
 
 const ProgressBar = () => {
   const progressState = useProgressContext();
-  console.log(progressState);
   return (
     <div className="flex justify-center bg-white absolute w-screen bottom-0 pb-36 lg:pb-10">
       <section className="3xl:scale-125">

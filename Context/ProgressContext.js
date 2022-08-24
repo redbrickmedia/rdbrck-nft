@@ -7,12 +7,12 @@ const InitialValue = [
   {
     name: "Connect to Metamask",
     id: 1,
-    active : true,
+    active: true,
   },
   {
     name: "Select year",
     id: 2,
-    active : true,
+    active: true,
   },
   {
     name: "Connect to Polygon",
@@ -29,7 +29,6 @@ const ProgressContext = createContext();
 export const useProgressContext = () => useContext(ProgressContext);
 const ProgressProvider = ({ children }) => {
   const [progress, setProgress] = useState(InitialValue);
-  console.log(progress);
 
   return (
     <ProgressContext.Provider value={{ progress, setProgress }}>

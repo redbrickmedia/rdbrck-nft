@@ -3,7 +3,7 @@ import tw from "tailwind-styled-components";
 import Header from "../components/Header";
 import ProgressBar from "../components/ProgressBar";
 import { motion } from "framer-motion";
-import { OnboardingButton } from "./../components/onboarding";
+import { OnboardingButton } from "./../components/Onboarding";
 
 const pageVariants = {
   initial: {

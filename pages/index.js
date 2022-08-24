@@ -1,7 +1,7 @@
 import Head from "next/head";
 import tw from "tailwind-styled-components";
 import Header from "../components/Header";
-import Footer from "../components/Footer";
+import ProgressBar from "../components/ProgressBar";
 import { motion } from "framer-motion";
 import { OnboardingButton } from "./../components/onboarding";
 
@@ -19,6 +19,7 @@ const pageVariants = {
 
 export default function Home() {
   return (
+    <div>
     <Container>
       <Head>
         <title>Redbrick NFT</title>
@@ -48,9 +49,10 @@ export default function Home() {
           </div>
         </div>
         <OnboardingButton />
-        <Footer />
       </motion.div>
     </Container>
+    <ProgressBar />
+    </div>
   );
 }
 

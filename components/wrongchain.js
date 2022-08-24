@@ -23,7 +23,7 @@ const Wrongchain = () => {
                   chainName: "Polygon Mumbai",
                   rpcUrls: [
                     //if issues arise with the rpc url here, replace with https://polygon-rpc.com/. this is a public rpc endpoint.
-                    "https://rpc-mumbai.maticvigil.com/v1/d20066f23fe6613c8f530422eb27b2bc80e5fe6e",
+                    "https://dark-winter-bush.matic-testnet.discover.quiknode.pro/26b09c11066a1762b3041984425f6786c2cd5174/",
                   ],
                   nativeCurrency: {
                     name: "MATIC",
@@ -47,17 +47,19 @@ const Wrongchain = () => {
   return (
     <TitleContainer>
       <div className="grid gap-5">
-        <Title>Next step:</Title>
-          <p className="leading-relaxed font-[300] text-[#D8D8D8] 3xl:text-2xl 3xl:leading-relaxed">
-          Redbrick NFTs are built on the Polygon blockchain, so we&apos;ll need to add that network to your wallet. Please click the button below to connect to Polygon.
-          </p>
+        <Title>Last step:</Title>
+        <p className="leading-relaxed font-[300] text-[#D8D8D8] 3xl:text-2xl 3xl:leading-relaxed">
+          Redbrick NFTs are built on the Polygon blockchain, so we&apos;ll need
+          to add that network to your wallet. Please click the button below to
+          connect to Polygon.
+        </p>
         <ChangeButton
           onClick={() => {
             changeNetwork();
             connectWithMetamask();
           }}
         >
-         Switch to Polygon
+          Connect to Polygon
         </ChangeButton>
       </div>
     </TitleContainer>

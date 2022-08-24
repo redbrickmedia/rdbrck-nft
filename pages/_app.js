@@ -1,5 +1,6 @@
 import "../styles/globals.css";
 import { ChainId, ThirdwebProvider } from "@thirdweb-dev/react";
+import ProgressProvider from "../Context/ProgressContext";
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -14,7 +15,9 @@ function MyApp({ Component, pageProps }) {
       }}
       desiredChainId={ChainId.Mumbai}
     >
-      <Component {...pageProps} />
+      <ProgressProvider>
+        <Component {...pageProps} />
+      </ProgressProvider>
     </ThirdwebProvider>
   );
 }

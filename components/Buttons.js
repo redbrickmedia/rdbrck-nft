@@ -6,9 +6,11 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Wrongchain from "./wrongchain";
 import React from "react";
+import { useProgressContext } from "./../Context/ProgressContext";
 
 const Buttons = (props) => {
   const chainId = useChainId();
+  const [checkChainId, setCheckChainId] = useState(0);
   const [inProgress, setInProgress] = useState(false);
   const [completed, setCompleted] = useState(false);
   const [hasClaimedNFT, setHasClaimedNFT] = useState(false);
@@ -16,23 +18,27 @@ const Buttons = (props) => {
   const editionDrop = useEditionDrop(
     "0x03DF2c5E067ff0e24c47386A8e5821560Dcc1e53"
   );
+  const progressState = useProgressContext();
 
-  console.log(address);
-  console.log(props.id);
-  console.log(chainId);
+  // console.log(address);
+  // console.log(props.id);
+  // console.log(chainId);
 
   const checkBalance = async () => {
     try {
       const balance = await editionDrop.balanceOf(address, props.id);
       if (balance != 0) {
         setHasClaimedNFT(true);
+        setCheckChainId(1);
         console.log("You own this Redbrick NFT already!");
       } else {
         setHasClaimedNFT(false);
+        setCheckChainId(3);
         console.log("You don't own this NFT yet!");
       }
     } catch (error) {
       setHasClaimedNFT(false);
+      setCheckChainId(2);
       console.error("Failed to get balance", error);
     }
   };
@@ -44,6 +50,40 @@ const Buttons = (props) => {
 
     checkBalance();
   }, [address, editionDrop]);
+
+  useEffect(() => {
+    if (chainId === 80001) {
+      progressState.setProgress((prevValue) => [
+        ...prevValue
+          .filter((x) => x.id < 4)
+          .map((y) => {
+            return { ...y, active: false };
+          }),
+        ...prevValue
+          .filter((x) => x.id === 4)
+          .map((y) => {
+            return { ...y, active: true };
+          }),
+        ...prevValue
+          .filter((x) => x.id > 4)
+          .map((y) => {
+            return { ...y, active: false };
+          }),
+      ]);
+    }
+  }, [chainId, checkChainId]);
+
+  useEffect(() => {
+    if (hasClaimedNFT || completed) {
+      progressState.setProgress((prevValue) => [
+        ...prevValue
+          .filter((x) => x.id < 5)
+          .map((y) => {
+            return { ...y, active: false };
+          }),
+      ]);
+    }
+  }, [hasClaimedNFT, completed]);
 
   const mint = async () => {
     if (editionDrop && address) {
@@ -69,25 +109,24 @@ const Buttons = (props) => {
                   <Title>{props.nexttitle}</Title>
                   <ul className="list-disc ml-6 leading-relaxed font-[300] text-[#D8D8D8] 3xl:text-2xl 3xl:leading-relaxed">
                     <li>
-                      Share it by posting the file or the listing URL from
-                      Rarible to your social networks like LinkedIn
-                    </li>
-                    <li>
                       View your NFTs on Rarible by clicking the button below
                     </li>
                     <li>
-                      You can visit{" "}
+                      Share your NFT to social networks like LinkedIn by posting
+                      the file or the listing URL from Rarible
+                    </li>
+                    <li>
+                      Learn more about NFTs at{" "}
                       <a
                         target="_blank"
                         href="https://ethereum.org/en/nft/"
                         rel="noopener noreferrer"
                       >
-                        <u>here</u>{" "}
+                        <u>ethereum.org/en/nft/</u>{" "}
                       </a>{" "}
-                      to learn more about NFTs
                     </li>
                     <li>
-                      If you&apos;d like to view our smart contract you can see
+                      If you would like to view our smart contract you can see
                       it on Polyscan{" "}
                       <a
                         target="_blank"
@@ -126,25 +165,24 @@ const Buttons = (props) => {
                   <Title>{props.nexttitle}</Title>
                   <ul className="list-disc ml-6 leading-relaxed font-[300] text-[#D8D8D8] 3xl:text-2xl 3xl:leading-relaxed">
                     <li>
-                      Share it by posting the file or the listing URL from
-                      Rarible to your social networks like LinkedIn
-                    </li>
-                    <li>
                       View your NFTs on Rarible by clicking the button below
                     </li>
                     <li>
-                      You can visit{" "}
+                      Share your NFT to social networks like LinkedIn by posting
+                      the file or the listing URL from Rarible
+                    </li>
+                    <li>
+                      Learn more about NFTs at{" "}
                       <a
                         target="_blank"
                         href="https://ethereum.org/en/nft/"
                         rel="noopener noreferrer"
                       >
-                        <u>here</u>{" "}
+                        <u>ethereum.org/en/nft/</u>{" "}
                       </a>{" "}
-                      to learn more about NFTs
                     </li>
                     <li>
-                      If you&apos;d like to view our smart contract you can see
+                      If you would like to view our smart contract you can see
                       it on Polyscan{" "}
                       <a
                         target="_blank"

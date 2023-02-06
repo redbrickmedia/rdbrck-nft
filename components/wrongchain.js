@@ -20,10 +20,7 @@ const Wrongchain = () => {
                 {
                   chainId: `0x${Number(137).toString(16)}`,
                   chainName: "Polygon",
-                  rpcUrls: [
-                    //if issues arise with the rpc url, you can replace this with https://polygon-rpc.com/. This is a public rpc endpoint.
-                    "https://red-smart-fog.matic.discover.quiknode.pro/dce86fbc95090f14745addc4ea8d8fdf47f39a13/",
-                  ],
+                  rpcUrls: ["https://polygon-rpc.com/"],
                   nativeCurrency: {
                     name: "MATIC",
                     symbol: "MATIC",
